@@ -29,7 +29,7 @@ function Login(event) {
     return (
         <div className='login-join-background'>
             <h3>Sign in</h3>
-            <form className='login-join-form'>
+            <form className='login-join-form' onSubmit={handleFormSubmit}>
                 <div>
                     <label htmlFor="email">Email:</label>
                     <input

@@ -4,6 +4,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
 import Landing from './pages/Landing';
+import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
@@ -28,6 +29,7 @@ function App() {
           <h1>The Private Network</h1>
           <Switch>
             <Route exact path="/" component={Landing} />
+            <Route exact path="/home" component={Home} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
           </Switch>
