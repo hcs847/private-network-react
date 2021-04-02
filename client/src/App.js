@@ -7,6 +7,7 @@ import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Header from './components/Header';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -26,7 +27,7 @@ function App() {
       <Router>
 
         <div className="App">
-          <h1>The Private Network</h1>
+          <Header />
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/home" component={Home} />
