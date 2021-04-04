@@ -28,9 +28,9 @@ function Login(event) {
     }
     return (
         <div className='login-join-background'>
-            <h3>Sign in</h3>
+            <h2 className='form-title center'>Log in to your account</h2>
             <form className='login-join-form' onSubmit={handleFormSubmit}>
-                <div>
+                <div className='flex flex-between'>
                     <label htmlFor="email">Email:</label>
                     <input
                         placeholder='youremail@email.com'
@@ -39,7 +39,7 @@ function Login(event) {
                         type="email"
                         onChange={handleChange} />
                 </div>
-                <div>
+                <div className='flex flex-between'>
                     <label htmlFor="pwd">Password:</label>
                     <input
                         placeholder='******'
@@ -55,12 +55,12 @@ function Login(event) {
                     </div> : null
                 }
                 <div>
-                    <button type='submit'>Submit</button>
+                    <button className='btn center' type='submit'>Submit</button>
                 </div>
             </form>
             <div className='login-switch'>
                 New to the Private Network?
-                <Link to='/signup'>Join now</Link>
+                <span className='link'><Link to='/signup'>Join now</Link></span>
             </div>
 
         </div>

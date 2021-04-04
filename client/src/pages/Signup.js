@@ -40,9 +40,9 @@ function Signup() {
 
     return (
         <div className='login-join-background'>
-            <h3>Signup</h3>
+            <h2 className='form-title center'>Signup</h2>
             <form className='form-login-join' onSubmit={handleFormSubmit}>
-                <div>
+                <div className='flex flex-between'>
                     <label htmlFor="firstName">First Name:</label>
                     <input
                         value={formState.firstName}
@@ -53,7 +53,7 @@ function Signup() {
                         onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className='flex flex-between'>
                     <label htmlFor="lastName">Last Name:</label>
                     <input
                         value={formState.lastname}
@@ -64,7 +64,7 @@ function Signup() {
                         onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className='flex flex-between'>
                     <label htmlFor="email">Email:</label>
                     <input
                         value={formState.email}
@@ -75,7 +75,7 @@ function Signup() {
                         onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className='flex flex-between'>
                     <label htmlFor="pwd">Password:</label>
                     <input
                         value={formState.password}
@@ -87,16 +87,16 @@ function Signup() {
                     />
                 </div>
                 <div>
-                    <button type='submit'>
+                    <button className='btn' type='submit'>
                         Submit
                     </button>
                 </div>
             </form>
             <div className="login-switch">
-                <p>Already on The Private Network? <Link to='/login'>Sign in</Link></p>
+                <p>Already on The Private Network?  <span className='link'><Link to='/login'>Sign in</Link></span></p>
             </div>
 
-        </div>
+        </div >
     );
 }
 
