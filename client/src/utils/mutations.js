@@ -21,3 +21,15 @@ mutation addUser($firstName: String!, $lastName: String!, $email: String!, $pass
     }
 }
 `;
+
+export const ADD_POST = gql`
+mutation addPost($input: PostInput) {
+    addPost(input:$input) {
+      _id,
+    	title,
+    	body,
+    	post_img
+    	email
+      }
+    }
+`;
