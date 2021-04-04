@@ -14,13 +14,15 @@ type Post {
     title: String
     body: String
     post_img: String
-    user: User
+    email: String
 
 }
 
 type Query {
     user(userId: ID!): User
+    users: [User]
     post(_id: ID!): Post
+
 }
 
 input PostInput {
