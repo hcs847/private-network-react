@@ -6,10 +6,29 @@ type User {
     firstName: String
     lastName: String
     email:String
+    posts: [Post]
+}
+
+type Post {
+    _id: ID
+    title: String
+    body: String
+    post_img: String
+    email: String
+
 }
 
 type Query {
     user(userId: ID!): User
+    users: [User]
+    post(_id: ID!): Post
+
+}
+
+input PostInput {
+    title: String
+    body: String
+    post_img: String
 }
 
 type Auth {
@@ -21,6 +40,7 @@ type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password:String): User
     login(email: String!, password: String!): Auth
+    addPost(input: PostInput): Post
 }
 `;
 

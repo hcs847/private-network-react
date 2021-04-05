@@ -73,6 +73,21 @@ a, a:visited {
   height: 100%;
 }
 
+.login-join-background, .post-form {
+  align-self: center;
+  max-width: 25vw;;
+  margin-left: 5vw;
+  background-color: white;
+  padding: 1em 2em;
+  box-shadow: 0 0.5em 1em rgb(221 107 35 / 15%);
+  border-radius: 0.5rem;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 0.6rem;
+  color:var(--med-green);
+}
 
 .nav-list {
 list-style: none;
@@ -86,6 +101,7 @@ gap:1rem;
 
 .flex {
   display:flex;
+  gap:1rem;
 }
 
 .flex-around {
@@ -99,3 +115,43 @@ gap:1rem;
 .flex-columns {
   flex-direction: column;
 }
+
+.center {
+  margin: auto;
+}
+
+input.forminput,
+textarea.forminput,
+textarea,
+input {
+  float: right;
+  color: rgb(97, 96, 96);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  border: solid 1px gray;
+  border-radius: 0.5rem;
+  line-height: 1.375rem;
+  min-height: 2.6rem;
+  padding: 0 0.625rem;   
+}
+
+.btn {
+  border-radius: 0.3rem;
+  cursor: pointer;
+  border-radius: 0.6rem;
+  width: 100%;
+  background-color: var(--med-green);
+  color: white;
+  border-color: white;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  min-height: 2.6rem;
+  padding: 0 .625rem;
+  margin-bottom: 0.5rem;
+}
+
+.link {
+  color:var(--med-green);
+  font-weight: bolder;
+}
+

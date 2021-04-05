@@ -10,8 +10,7 @@ function Landing() {
         return <Redirect to='/home' />
     }
     return (
-        <div className='landing-page'>
-            {/* <h2><Link to='/login'>Login</Link> or <Link to='/signup'>Join</Link></h2> */}
+        <div className='landing-page flex'>
             <Login />
         </div>
     )
