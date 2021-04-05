@@ -73,7 +73,7 @@ a, a:visited {
   height: 100%;
 }
 
-.login-join-background {
+.login-join-background, .post-form {
   align-self: center;
   max-width: 25vw;;
   margin-left: 5vw;
@@ -83,6 +83,11 @@ a, a:visited {
   border-radius: 0.5rem;
 }
 
+.form-title {
+  text-align: center;
+  margin-bottom: 0.6rem;
+  color:var(--med-green);
+}
 
 .nav-list {
 list-style: none;
@@ -116,7 +121,8 @@ gap:1rem;
 }
 
 input.forminput,
-textarea.forminput ,
+textarea.forminput,
+textarea,
 input {
   float: right;
   color: rgb(97, 96, 96);
@@ -149,8 +155,3 @@ input {
   font-weight: bolder;
 }
 
-.form-title {
-  text-align: center;
-  margin-bottom: 0.6rem;
-  color:var(--med-green);
-}
