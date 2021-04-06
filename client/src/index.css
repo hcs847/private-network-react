@@ -75,7 +75,7 @@ a, a:visited {
 
 .login-join-background, .post-form {
   align-self: center;
-  max-width: 25vw;;
+  max-width: 33%;
   margin-left: 5vw;
   background-color: white;
   padding: 1em 2em;
@@ -85,8 +85,10 @@ a, a:visited {
 
 .form-title {
   text-align: center;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.6em !important;
   color:var(--med-green);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .nav-list {
