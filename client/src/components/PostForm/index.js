@@ -7,7 +7,7 @@ import { ADD_POST } from '../../utils/mutations';
 const PostForm = () => {
 
     // create a post and update graphql
-    const [addEvent, { error }] = useMutation(ADD_POST);
+    const [addPost, { error }] = useMutation(ADD_POST);
 
     // handling state for post form fields
     const [postState, setPostState] = useState({
@@ -15,12 +15,34 @@ const PostForm = () => {
         body: '',
         post_img: ''
     });
-    const handleChangePostForm = () => {
-
+    const handleChangePostForm = (event) => {
+        const { name, value } = event.target;
+        setPostState({
+            ...postState,
+            // dynamically assigning value entered to related field name
+            [name]: value
+        })
     }
+    // when from is submited, graphql to be updated asynchronously 
+    const handleSubmitPostForm = async event => {
+        // disable default browser behavior on submit
+        event.preventDefault();
 
-    const handleSubmitPostForm = () => {
 
+        console.log(postState);
+        try {
+            await addPost({
+                // syntax for passing form entries as input type PostInput
+                variables: { input: { ...postState } }
+            });
+            setPostState({
+                title: '',
+                body: '',
+                post_img: ''
+            });
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     return (
@@ -51,7 +73,9 @@ const PostForm = () => {
                     <input
                         type="text"
                         name="post_img"
-                        value={postState.post_img} />
+                        value={postState.post_img}
+                        onChange={handleChangePostForm}
+                    />
                 </div>
                 <button className='btn'>Submit</button>
             </form>

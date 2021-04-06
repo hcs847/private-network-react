@@ -28,7 +28,7 @@ function Login(event) {
     }
     return (
         <div className='login-join-background'>
-            <h2 className='form-title center'>Log in to your account</h2>
+            <h2 className='form-title center'>Login to your account</h2>
             <form className='login-join-form' onSubmit={handleFormSubmit}>
                 <div className='flex flex-between'>
                     <label htmlFor="email">Email:</label>
