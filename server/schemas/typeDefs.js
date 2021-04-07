@@ -22,6 +22,7 @@ type Query {
     user(userId: ID!): User
     users: [User]
     post(_id: ID!): Post
+    posts: [Post]
 
 }
 

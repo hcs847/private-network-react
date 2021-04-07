@@ -51,6 +51,12 @@ a, a:visited {
   color:inherit;
 }
 
+img {
+  width:100%;
+}
+
+
+
 
 .landing-page {
   background-image: url('../src/images/matrix-background.png');
@@ -69,9 +75,19 @@ a, a:visited {
   background-size: cover;
   position: absolute;
   background-blend-mode: lighten;
+  background-attachment: fixed;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
 }
+
+.post-list {
+  max-width: 33vw;
+  background-color: white;
+}
+
+/* .post-img {
+  max-width: 90%;
+} */
 
 .login-join-background, .post-form {
   align-self: center;
@@ -101,6 +117,10 @@ gap:1rem;
   color:white;
 }
 
+.no-display {
+  display: none !important;
+}
+
 .flex {
   display:flex;
   gap:1rem;
@@ -114,9 +134,16 @@ gap:1rem;
   justify-content: space-between;
 }
 
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
 .flex-columns {
   flex-direction: column;
 }
+
+
 
 .center {
   margin: auto;
@@ -137,19 +164,41 @@ input {
   padding: 0 0.625rem;   
 }
 
-.btn {
-  border-radius: 0.3rem;
+.btn, .btn-modal {
   cursor: pointer;
   border-radius: 0.6rem;
   width: 100%;
-  background-color: var(--med-green);
   color: white;
-  border-color: white;
   font-size: 1rem;
   line-height: 1.375rem;
   min-height: 2.6rem;
+  
+}
+.btn {
+  background-color: var(--med-green);
+  border-color: white;
   padding: 0 .625rem;
   margin-bottom: 0.5rem;
+}
+
+.btn-modal {
+  background-color: rgb(240, 236, 236);
+  color:rgb(105, 103, 103);
+  font-weight:bolder ;
+  text-align: left;
+  padding-left: 0.5em;
+}
+
+.icons {
+  border:initial;
+  background-color: initial;
+  font-weight:bolder;
+}
+
+.icons:hover {
+  color: red;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .link {
