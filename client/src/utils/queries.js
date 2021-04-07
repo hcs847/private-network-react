@@ -27,3 +27,14 @@ query post($_id:ID!) {
   }  
 }
 `;
+
+export const QUERY_POSTS = gql`
+{
+  posts {
+    _id
+    title
+    body
+    post_img
+  }
+}
+`;

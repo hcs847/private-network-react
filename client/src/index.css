@@ -51,6 +51,12 @@ a, a:visited {
   color:inherit;
 }
 
+img {
+  width:100%;
+}
+
+
+
 
 .landing-page {
   background-image: url('../src/images/matrix-background.png');
@@ -69,9 +75,19 @@ a, a:visited {
   background-size: cover;
   position: absolute;
   background-blend-mode: lighten;
+  background-attachment: fixed;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
 }
+
+.post-list {
+  max-width: 33vw;
+  background-color: white;
+}
+
+/* .post-img {
+  max-width: 90%;
+} */
 
 .login-join-background, .post-form {
   align-self: center;
@@ -118,9 +134,16 @@ gap:1rem;
   justify-content: space-between;
 }
 
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
 .flex-columns {
   flex-direction: column;
 }
+
+
 
 .center {
   margin: auto;
@@ -164,6 +187,18 @@ input {
   font-weight:bolder ;
   text-align: left;
   padding-left: 0.5em;
+}
+
+.icons {
+  border:initial;
+  background-color: initial;
+  font-weight:bolder;
+}
+
+.icons:hover {
+  color: red;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .link {
