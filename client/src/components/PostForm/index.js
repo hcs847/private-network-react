@@ -4,7 +4,7 @@ import { ADD_POST } from '../../utils/mutations';
 
 
 
-const PostForm = () => {
+const PostForm = ({ showPostForm, onPost }) => {
 
     // create a post and update graphql
     const [addPost, { error }] = useMutation(ADD_POST);
@@ -47,8 +47,8 @@ const PostForm = () => {
 
     return (
         <div className='post-form center'>
-            <h2 className='form-title'>Create a Post</h2>
-            <form className='flex flex-columns' onSubmit={handleSubmitPostForm}>
+            <button className='btn-modal' type='button' onClick={onPost}>Start a Post</button>
+            <form className={`flex flex-columns ${!showPostForm ? 'no-display' : ''}`} onSubmit={handleSubmitPostForm}>
                 <div className='flex flex-between'>
                     <label htmlFor="title">Post title</label>
                     <input

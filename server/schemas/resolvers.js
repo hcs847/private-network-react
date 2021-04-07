@@ -18,14 +18,18 @@ const resolvers = {
             return User.find()
                 // omits the Mongoose __v property the user's password information,
                 .select('-__v -password')
+                // display sub documents of posts related to user
                 .populate('posts');
         },
+
         post: async (parent, { _id }) => {
-
             return await Post.findById(_id);
+        },
 
-
+        posts: async () => {
+            return Post.find();
         }
+
     },
 
     Mutation: {
