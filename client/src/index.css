@@ -55,9 +55,6 @@ img {
   width:100%;
 }
 
-
-
-
 .landing-page {
   background-image: url('../src/images/matrix-background.png');
   background-size: cover;
@@ -68,7 +65,7 @@ img {
   height: 100%;
 }
 
-.home-page {
+.App {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(221,107,35,0.25)),url('../src/images/matrix-escape-small.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -80,14 +77,22 @@ img {
   min-height: 100vh;
 }
 
+.header {
+ position: fixed;
+ top:0;
+ width:100%;
+ z-index: 999;
+}
+
+.home-page{
+  margin-top: 6.5em;
+}
+
 .post-list {
   max-width: 33vw;
   background-color: white;
 }
 
-/* .post-img {
-  max-width: 90%;
-} */
 
 .login-join-background, .post-form {
   align-self: center;
@@ -97,6 +102,11 @@ img {
   padding: 1em 2em;
   box-shadow: 0 0.5em 1em rgb(221 107 35 / 15%);
   border-radius: 0.5rem;
+}
+
+.post-form {
+  position: relative;
+  margin: 1em auto !important;
 }
 
 .form-title {
@@ -143,8 +153,6 @@ gap:1rem;
   flex-direction: column;
 }
 
-
-
 .center {
   margin: auto;
 }
@@ -189,10 +197,35 @@ input {
   padding-left: 0.5em;
 }
 
+.modal-overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:10;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.7); ;
+}
+.form-modal {
+  position: relative;
+  padding: 1em 2em;
+  background: white;
+  top: 7em;
+  max-width: 33%;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
 .icons {
   border:initial;
   background-color: initial;
   font-weight:bolder;
+}
+
+.icon-x {
+  position:absolute;
+  right: 0.5rem;
+  top: 0.5rem;
 }
 
 .icons:hover {
