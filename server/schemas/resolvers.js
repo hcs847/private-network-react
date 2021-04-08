@@ -77,6 +77,16 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in for this action.')
         },
+
+        deletePost: async (parent, args, context) => {
+            if (context.user) {
+                const deletedPost = await Post.findOneAndDelete(
+                    { _id: args.postId }
+                );
+                return deletedPost;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        }
     }
 };
 

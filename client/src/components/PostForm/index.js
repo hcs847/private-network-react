@@ -41,6 +41,7 @@ const PostForm = ({ showPostForm, onPost }) => {
                 body: '',
                 post_img: ''
             });
+            onPost();
         } catch (err) {
             console.error(err);
         }

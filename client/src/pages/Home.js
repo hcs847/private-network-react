@@ -13,11 +13,11 @@ const Home = () => {
 
     // toggle Post form display to expand on click and hidden as a default
     const [showPostForm, setShowPostForm] = useState(false);
-
+    const togglePostForm = () => setShowPostForm(!showPostForm);
     return (
         <div className='home-page'>
             <PostForm showPostForm={showPostForm}
-                onPost={() => setShowPostForm(!showPostForm)} />
+                onPost={togglePostForm} />
             <PostList posts={posts} />
 
         </div>
