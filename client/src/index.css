@@ -53,6 +53,7 @@ a, a:visited {
 
 img {
   width:100%;
+  display: block;
 }
 
 .landing-page {
@@ -226,12 +227,11 @@ input {
   position:absolute;
   right: 0.5rem;
   top: 0.5rem;
+  cursor: pointer;
 }
 
-.icons:hover {
-  color: red;
-  border-radius: 50%;
-  cursor: pointer;
+.icon-x svg path:hover {
+  stroke-width: 5;
 }
 
 .link {
