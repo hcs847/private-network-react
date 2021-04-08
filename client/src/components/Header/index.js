@@ -9,7 +9,7 @@ const Header = () => {
         Auth.logout();
     }
     return (
-        <div className={`${Auth.loggedIn() ? 'navy' : 'dark'}`}>
+        <div className={`header ${Auth.loggedIn() ? 'navy' : 'dark'}`}>
             <h1 style={{ color: 'white' }}>The Private Network</h1>
             {Auth.loggedIn() ? (
 

@@ -16,7 +16,6 @@ const Home = () => {
 
     return (
         <div className='home-page'>
-            <h2 style={{ color: 'gray' }}>Welcome to the home page</h2>
             <PostForm showPostForm={showPostForm}
                 onPost={() => setShowPostForm(!showPostForm)} />
             <PostList posts={posts} />

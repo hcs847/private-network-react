@@ -51,44 +51,46 @@ const PostForm = ({ showPostForm, onPost }) => {
             {!showPostForm ? (
                 <button className='btn-modal' type='button' onClick={onPost}>Start a Post</button>
             ) : (
-                <>
-                    <div style={{ marginBottom: '0.5rem' }} className='flex flex-around'>
-                        <h3 style={{ display: 'inline-block' }} className='form-title'>Create a Post</h3>
-                        <button style={{ marginLeft: 'auto' }} type='button' className='icons' onClick={onPost}><GrClose /></button>
-                    </div>
+                <div className="modal-overlay">
+                    <div className='form-modal'>
+                        <div className='flex flex-around'>
+                            <h3 style={{ display: 'inline-block' }} className='form-title'>Create a Post</h3>
+                            <button style={{ marginLeft: 'auto' }} type='button' className='icons icon-x' onClick={onPost}><GrClose /></button>
+                        </div>
 
-                    <form className={`flex flex-columns ${!showPostForm ? 'no-display' : ''}`} onSubmit={handleSubmitPostForm}>
-                        <div className='flex flex-between'>
-                            <label htmlFor="title">Post title</label>
-                            <input
-                                type="text"
-                                name="title"
-                                value={postState.title}
-                                onChange={handleChangePostForm}
-                            />
-                        </div>
-                        <div className='flex flex-between'>
-                            <label htmlFor="body">Post body</label>
-                            <textarea
-                                placeholder='What would you like to say?'
-                                name='body'
-                                type="text"
-                                value={postState.body}
-                                onChange={handleChangePostForm}
-                            />
-                        </div>
-                        <div className='flex flex-between'>
-                            <label htmlFor="post_img">Photo</label>
-                            <input
-                                type="text"
-                                name="post_img"
-                                value={postState.post_img}
-                                onChange={handleChangePostForm}
-                            />
-                        </div>
-                        <button className='btn'>Submit</button>
-                    </form>
-                </>
+                        <form className={`flex flex-columns ${!showPostForm ? 'no-display' : ''}`} onSubmit={handleSubmitPostForm}>
+                            <div className='flex flex-between'>
+                                <label htmlFor="title">Post title</label>
+                                <input
+                                    type="text"
+                                    name="title"
+                                    value={postState.title}
+                                    onChange={handleChangePostForm}
+                                />
+                            </div>
+                            <div className='flex flex-between'>
+                                <label htmlFor="body">Post body</label>
+                                <textarea
+                                    placeholder='What would you like to say?'
+                                    name='body'
+                                    type="text"
+                                    value={postState.body}
+                                    onChange={handleChangePostForm}
+                                />
+                            </div>
+                            <div className='flex flex-between'>
+                                <label htmlFor="post_img">Photo</label>
+                                <input
+                                    type="text"
+                                    name="post_img"
+                                    value={postState.post_img}
+                                    onChange={handleChangePostForm}
+                                />
+                            </div>
+                            <button className='btn'>Submit</button>
+                        </form>
+                    </div>
+                </div>
             )
             }
         </div>
