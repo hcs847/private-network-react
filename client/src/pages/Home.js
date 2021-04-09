@@ -16,10 +16,11 @@ const Home = () => {
     const togglePostForm = () => setShowPostForm(!showPostForm);
     return (
         <div className='home-page'>
-            <PostForm showPostForm={showPostForm}
-                onPost={togglePostForm} />
-            <PostList posts={posts} />
-
+            <div className="main-container">
+                <PostForm showPostForm={showPostForm}
+                    onPost={togglePostForm} />
+                <PostList posts={posts} />
+            </div>
         </div>
     )
 }

@@ -4,7 +4,7 @@
   --dark-green: #2c4741;
   --med-green: #295f3a;
   --dark: #19191f;
-  --navy: rgb(4, 24, 49);
+  --navy: rgb(3, 3, 3);
   --body: rgb(240, 252, 246);
 }
 
@@ -67,14 +67,12 @@ img {
 }
 
 .App {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(221,107,35,0.25)),url('../src/images/matrix-escape-small.jpg');
-  background-position: center;
+  background-image: url('../src/images/matrix-escape-gray.jpg');
+  background-position:center;
   background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  background-blend-mode: lighten;
+  background-size:cover;
   background-attachment: fixed;
-  width: 100%;
+  min-width: 100vw;
   min-height: 100vh;
 }
 
@@ -86,7 +84,7 @@ img {
 }
 
 .home-page{
-  margin-top: 6.5em;
+  padding-top: 6.5em;
 }
 
 .post-list {
@@ -97,17 +95,25 @@ img {
 
 .login-join-background, .post-form {
   align-self: center;
-  max-width: 33%;
+  max-width: 33vw;
   margin-left: 5vw;
   background-color: white;
   padding: 1em 2em;
-  box-shadow: 0 0.5em 1em rgb(221 107 35 / 15%);
+  box-shadow: 0 0.5em 1em rgb(44 71 65 / 15%);
   border-radius: 0.5rem;
+}
+
+.main-container {
+  background-color: white;
+  max-width: 40vw;
+  margin: 0 auto;
+  box-shadow: 0 0.5em 1em rgb(44 71 65 / 25%);
+  padding-top: 0.1rem;
 }
 
 .post-form {
   position: relative;
-  margin: 1em auto !important;
+  margin: 2em auto !important;
 }
 
 .form-title {
@@ -213,7 +219,7 @@ input {
   background: white;
   top: 7em;
   max-width: 33%;
-  margin: 0 auto;
+  margin: 1em auto;
   overflow-y: auto;
 }
 
