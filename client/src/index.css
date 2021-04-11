@@ -88,14 +88,14 @@ img {
 }
 
 .post-list {
-  max-width: 33vw;
+  max-width: 25vw;
   background-color: white;
 }
 
 
 .login-join-background, .post-form {
   align-self: center;
-  max-width: 33vw;
+  max-width: 25vw;
   margin-left: 5vw;
   background-color: white;
   padding: 1em 2em;
@@ -105,15 +105,27 @@ img {
 
 .main-container {
   background-color: white;
-  max-width: 40vw;
+  max-width: 32vw;
   margin: 0 auto;
   box-shadow: 0 0.5em 1em rgb(44 71 65 / 25%);
   padding-top: 0.1rem;
+  border-radius: 0.5rem;
 }
 
 .post-form {
   position: relative;
   margin: 2em auto !important;
+}
+
+.post-form::after {
+  position: absolute;
+  content: '';
+  height: 1px;
+  background: darkgray;
+  width: 100%;
+  bottom: -16px;
+  left: 0;
+  right: 0;
 }
 
 .form-title {
