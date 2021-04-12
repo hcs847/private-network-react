@@ -85,11 +85,21 @@ img {
 
 .home-page{
   padding-top: 6.5em;
+  padding-bottom: 2.5rem;
 }
 
 .post-list {
   max-width: 25vw;
   background-color: white;
+}
+
+.comments-list__item{
+  color: black;
+}
+
+.created-by {
+  font-size: smaller;
+  font-weight: bolder;
 }
 
 
@@ -136,7 +146,7 @@ img {
   letter-spacing: 1px;
 }
 
-.nav-list {
+.nav-list, .comments-list {
 list-style: none;
 gap:1rem;
 }
