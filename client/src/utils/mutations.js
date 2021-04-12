@@ -33,3 +33,17 @@ mutation addPost($input: PostInput) {
       }
     }
 `;
+
+export const ADD_COMMENT = gql`
+mutation addComment($postId: ID!, $commentBody: String! ){
+      addComment(postId: $postId, commentBody: $commentBody) {
+        _id
+        comments {
+          _id
+          commentBody
+          email
+        }
+        
+      }
+    }
+`;

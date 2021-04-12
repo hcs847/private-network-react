@@ -78,6 +78,18 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in for this action.')
         },
 
+        addComment: async (parent, { postId, commentBody }, context) => {
+            if (context.user) {
+                const updatedPost = await Post.findOneAndUpdate(
+                    { _id: postId },
+                    { $push: { comments: { commentBody, email: context.user.email } } },
+                    { new: true, runValidators: true }
+                );
+                return updatedPost;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+
         deletePost: async (parent, args, context) => {
             if (context.user) {
                 const deletedPost = await Post.findOneAndDelete(

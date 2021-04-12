@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const commentSchema = require('./Comment');
 const { Schema, model } = mongoose;
 
 const postSchema = new Schema({
@@ -20,8 +21,11 @@ const postSchema = new Schema({
     email: {
         type: String,
         required: true
-    }
+    },
+
+    comments: [commentSchema]
 });
 
-const Post = model('Post', postSchema)
+const Post = model('Post', postSchema);
+
 module.exports = Post;

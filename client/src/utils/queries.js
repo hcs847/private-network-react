@@ -24,6 +24,12 @@ query post($_id:ID!) {
     title,
     post_img
     email
+    comments {
+      _id
+      createdAt
+      email
+      commentBody
+    }
   }  
 }
 `;
@@ -35,6 +41,12 @@ export const QUERY_POSTS = gql`
     title
     body
     post_img
+    comments {
+      _id
+      createdAt
+      email
+      commentBody
+    }
   }
 }
 `;
