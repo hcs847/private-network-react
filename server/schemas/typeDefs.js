@@ -15,7 +15,14 @@ type Post {
     body: String
     post_img: String
     email: String
+    comments: [Comment]
+}
 
+type Comment {
+    _id: ID
+    commentBody: String
+    createdAt: String
+    email: String
 }
 
 type Query {
@@ -42,6 +49,7 @@ type Mutation {
     updateUser(firstName: String, lastName: String, email: String, password:String): User
     login(email: String!, password: String!): Auth
     addPost(input: PostInput): Post
+    addComment(postId: ID!, commentBody:String!): Post
     deletePost(postId: ID!): Post
 }
 `;
