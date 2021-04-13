@@ -82,7 +82,15 @@ const resolvers = {
             if (context.user) {
                 const updatedPost = await Post.findOneAndUpdate(
                     { _id: postId },
-                    { $push: { comments: { commentBody, email: context.user.email } } },
+                    {
+                        $push: {
+                            comments: {
+                                commentBody,
+                                firstName: context.user.firstName,
+                                lastName: context.user.lastName
+                            }
+                        }
+                    },
                     { new: true, runValidators: true }
                 );
                 return updatedPost;

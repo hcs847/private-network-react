@@ -15,14 +15,16 @@ type Post {
     body: String
     post_img: String
     email: String
+    commentCount: Int
     comments: [Comment]
 }
 
 type Comment {
     _id: ID
-    commentBody: String
+    firstName: String
+    lastName: String
     createdAt: String
-    email: String
+    commentBody: String
 }
 
 type Query {

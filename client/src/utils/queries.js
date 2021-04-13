@@ -24,10 +24,12 @@ query post($_id:ID!) {
     title,
     post_img
     email
+    commentCount
     comments {
       _id
       createdAt
-      email
+      firstName
+      lastName
       commentBody
     }
   }  
@@ -41,10 +43,12 @@ export const QUERY_POSTS = gql`
     title
     body
     post_img
+    commentCount
     comments {
       _id
       createdAt
-      email
+      firstName
+      lastName
       commentBody
     }
   }
