@@ -1,14 +1,18 @@
 import React from 'react'
 
-const Comments = ({ comments }) => {
+const Comments = ({ comments, showComments, onComments, commentCount }) => {
     return (
         <>
-            <h4>Comments</h4>
-            <ul className='comments-list'>
+            {commentCount > 0 && (<button type='button' className='btn-no-styling' onClick={onComments}>{commentCount} Comments</button>)}
+            <ul className={`${showComments ? 'comments-list' : 'no-display'}`}>
                 {
                     comments &&
                     comments.map(comment => (
-                        <li className='comments-list__item' key={comment._id}>{comment.commentBody} by <span className='created-by'>{comment.email}</span></li>
+                        <li className='comment-list__item flex flex-columns' key={comment._id}>
+                            <p className='created-by-on'>
+                                {comment.firstName} {comment.lastName}
+                                <span style={{ fontWeight: 'lighter', paddingLeft: '5px' }}>{comment.createdAt}</span></p>
+                            <p className='comment-list__body'>{comment.commentBody}</p></li>
                     ))
                 }
             </ul>

@@ -4,6 +4,7 @@ import PostForm from '../components/PostForm';
 import PostList from '../components/PostList';
 import { QUERY_POSTS } from '../utils/queries';
 
+
 const Home = () => {
     // extract posts data
     const { loading, data } = useQuery(QUERY_POSTS);
@@ -14,12 +15,16 @@ const Home = () => {
     // toggle Post form display to expand on click and hidden as a default
     const [showPostForm, setShowPostForm] = useState(false);
     const togglePostForm = () => setShowPostForm(!showPostForm);
+
+    // toggle comments display to be hidden as a default
+    const [showComments, setShowComments] = useState(false);
+    const toggleComments = () => setShowComments(!showComments);
     return (
         <div className='home-page'>
             <div className="main-container">
                 <PostForm showPostForm={showPostForm}
                     onPost={togglePostForm} />
-                <PostList posts={posts} />
+                <PostList posts={posts} showComments={showComments} onComments={toggleComments} />
             </div>
         </div>
     )
