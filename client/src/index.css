@@ -45,6 +45,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.modal-open {
+  overflow:hidden;
+}
+
 a, a:visited {
   text-decoration: none;
   padding: 0.5rem;

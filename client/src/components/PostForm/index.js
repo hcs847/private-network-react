@@ -48,10 +48,13 @@ const PostForm = ({ showPostForm, onPost }) => {
     }
 
     return (
-        <div className='post-form center'>
+        <>
             {!showPostForm ? (
-                <button className='btn-modal' type='button' onClick={onPost}>Start a Post</button>
+                <div className='post-form center'>
+                    <button className='btn-modal' type='button' onClick={onPost}>Start a Post</button>
+                </div>
             ) : (
+
                 <div className="modal-overlay">
                     <div className='form-modal'>
                         <div className='flex flex-around'>
@@ -94,7 +97,7 @@ const PostForm = ({ showPostForm, onPost }) => {
                 </div>
             )
             }
-        </div>
+        </>
     )
 }
 

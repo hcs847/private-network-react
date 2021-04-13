@@ -3,7 +3,7 @@ import React from 'react'
 const Comments = ({ comments, showComments, onComments, commentCount }) => {
     return (
         <>
-            {commentCount > 0 && (<button type='button' className='btn-no-styling' onClick={onComments}>{commentCount} Comments</button>)}
+            {commentCount && (<button type='button' className='btn-no-styling' onClick={onComments}>{commentCount} Comments</button>)}
             <ul className={`${showComments ? 'comments-list' : 'no-display'}`}>
                 {
                     comments &&

@@ -14,7 +14,18 @@ const Home = () => {
 
     // toggle Post form display to expand on click and hidden as a default
     const [showPostForm, setShowPostForm] = useState(false);
-    const togglePostForm = () => setShowPostForm(!showPostForm);
+    const togglePostForm = () => {
+        // toggle display of modal
+        setShowPostForm(!showPostForm);
+        // add overflow:hidden to body when modal is open
+        // in order to disable background scrolling
+        // remove additional class of body when modal is closed
+        if (!showPostForm) {
+            document.body.classList.add('modal-open');
+        } else {
+            document.body.classList.remove('modal-open');
+        }
+    };
 
     // toggle comments display to be hidden as a default
     const [showComments, setShowComments] = useState(false);
