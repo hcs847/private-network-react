@@ -1,9 +1,10 @@
 import React from 'react'
+import pluralFormat from '../../utils/helpers'
 
 const Comments = ({ comments, showComments, onComments, commentCount }) => {
     return (
         <>
-            {commentCount && (<button type='button' className='btn-no-styling' onClick={onComments}>{commentCount} Comments</button>)}
+            {(commentCount > 0) && (<button type='button' className='btn-no-styling' onClick={onComments}>{commentCount} {pluralFormat('comment', commentCount)}</button>)}
             <ul className={`${showComments ? 'comments-list' : 'no-display'}`}>
                 {
                     comments &&
