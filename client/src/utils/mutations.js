@@ -50,8 +50,7 @@ mutation addComment($postId: ID!, $commentBody: String! ){
           commentBody
           lastName
           firstName
-        }
-        
+        }  
       }
     }
 `;

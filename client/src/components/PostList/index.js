@@ -1,7 +1,8 @@
 import React from 'react';
 import Comments from '../Comments';
+import CommentForm from '../CommentForm';
 
-const PostList = ({ posts, showComments, onComments }) => {
+const PostList = ({ posts, showComments, onComments, showCommentForm, toggleCommentForm }) => {
     if (!posts.length) {
         return <h3>No posts yet.</h3>;
     }
@@ -19,11 +20,16 @@ const PostList = ({ posts, showComments, onComments }) => {
                             <h5>{post.title}</h5>
                         </div>
                         <div className="comments-card">
-                            <Comments comments={post.comments}
+                            <Comments
+                                comments={post.comments}
                                 commentCount={post.commentCount}
                                 showComments={showComments}
                                 onComments={onComments} />
                         </div>
+                        <CommentForm
+                            postId={post._id}
+                            showCommentForm={showCommentForm}
+                            toggleCommentForm={toggleCommentForm} />
                     </div>
 
                 ))

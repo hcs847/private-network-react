@@ -28,9 +28,7 @@ const PostForm = ({ showPostForm, onPost }) => {
     const handleSubmitPostForm = async event => {
         // disable default browser behavior on submit
         event.preventDefault();
-
-
-        console.log(postState);
+        // console.log(postState);
         try {
             await addPost({
                 // syntax for passing form entries as input type PostInput

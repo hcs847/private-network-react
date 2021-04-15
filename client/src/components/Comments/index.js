@@ -4,7 +4,7 @@ import pluralFormat from '../../utils/helpers'
 const Comments = ({ comments, showComments, onComments, commentCount }) => {
     return (
         <>
-            {(commentCount > 0) && (<button type='button' className='btn-no-styling' onClick={onComments}>{commentCount} {pluralFormat('comment', commentCount)}</button>)}
+            {(commentCount > 0) && (<button type='button' className='btn-no-styling med-gray-font bold' onClick={onComments}>{commentCount} {pluralFormat('comment', commentCount)}</button>)}
             <ul className={`${showComments ? 'comments-list' : 'no-display'}`}>
                 {
                     comments &&
