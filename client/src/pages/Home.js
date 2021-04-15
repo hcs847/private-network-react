@@ -27,6 +27,11 @@ const Home = () => {
         }
     };
 
+    const [showCommentForm, setShowCommentForm] = useState(false);
+    const toggleCommentForm = () => {
+        setShowCommentForm(!showCommentForm);
+    }
+
     // toggle comments display to be hidden as a default
     const [showComments, setShowComments] = useState(false);
     const toggleComments = () => setShowComments(!showComments);
@@ -35,7 +40,7 @@ const Home = () => {
             <div className="main-container">
                 <PostForm showPostForm={showPostForm}
                     onPost={togglePostForm} />
-                <PostList posts={posts} showComments={showComments} onComments={toggleComments} />
+                <PostList posts={posts} showComments={showComments} onComments={toggleComments} showCommentForm={showCommentForm} toggleCommentForm={toggleCommentForm} />
             </div>
         </div>
     )
