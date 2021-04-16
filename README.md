@@ -9,8 +9,6 @@ Current version can be access through this [url](https://private-network-react.h
 ## Table of Contents
 * [Usage](#Usage)
 * [License](#License)
-* [Contributing](#Contributing)
-* [Tests](#Tests)
 * [Questions](#Questions)
 
 ## Usage
@@ -22,5 +20,3 @@ This project is covered under the ISC license.
 ## Questions
 GitHub: [github.com/hcs847](http://github.com/hcs847)  
 
-## Created by
-### Hila Caspi
