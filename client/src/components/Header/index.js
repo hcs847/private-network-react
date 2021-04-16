@@ -10,7 +10,7 @@ const Header = () => {
     }
     return (
         <div className={`header ${Auth.loggedIn() ? 'navy' : 'dark'}`}>
-            <h1 style={{ color: 'white' }}>The Private Network</h1>
+            <h1 className='logo'>The Private Network</h1>
             {Auth.loggedIn() ? (
 
                 <nav className='nav flex flex-between'>

@@ -95,7 +95,12 @@ img {
  width:100%;
  z-index: 999;
 }
+.logo {
+  color: white;
+  padding-left: 0.5em;
+  line-height: 1.6;
 
+}
 .home-page{
   padding-top: 6.5em;
   padding-bottom: 2.5rem;
