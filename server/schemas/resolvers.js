@@ -34,6 +34,10 @@ const resolvers = {
         group: async (parent, { _id }) => {
             return Group.findById(_id)
                 .populate('users');
+        },
+
+        groups: async () => {
+            return Group.find();
         }
 
     },
@@ -129,6 +133,16 @@ const resolvers = {
                     { _id: args.postId }
                 );
                 return deletedPost;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+
+        deleteGroup: async (parent, args, context) => {
+            if (context.user) {
+                const deletedGroup = await Group.findOneAndDelete(
+                    { _id: args.groupId }
+                );
+                return deletedGroup;
             }
             throw new AuthenticationError('You need to be logged in!');
         }

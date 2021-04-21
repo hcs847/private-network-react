@@ -42,7 +42,8 @@ type Query {
     post(_id: ID!): Post
     posts: [Post]
     group(_id: ID!): Group
-}
+    groups: [Group]
+    }
 
 input PostInput {
     title: String
@@ -63,6 +64,7 @@ type Mutation {
     addComment(postId: ID!, commentBody:String!): Post
     addGroup(groupName: String!, groupAdmin: String, grou_img: String) : Group
     deletePost(postId: ID!): Post
+    deleteGroup(groupId: ID!): Group
 }
 `;
 
