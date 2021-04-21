@@ -4,6 +4,7 @@
   --dark-green: #2c4741;
   --med-green: #295f3a;
   --med-gray: rgb(172, 171, 167);
+  --light-gray: rgba(222,222,222, 0.9);
   --dark: #19191f;
   --navy: rgb(4, 24, 49);
   --body: rgb(243, 242, 239);
@@ -112,11 +113,9 @@ img {
   flex-grow: 1;
   gap:2rem !important;
 }
-.feed-layout > * {
-  flex-basis: 40%;
-}
+
 .main-container, .side-container {
-  background-color: white;
+  background-color: var(--light-gray);
   box-shadow: 0 0.5em 1em rgb(44 71 65 / 25%);
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;;
@@ -127,15 +126,24 @@ img {
   flex-basis: 80%;
 }
 
+.side-container {
+  max-height: 60vh;
+  flex-basis: 40%;
+}
+
 .post-list {
   max-width: 25vw;
   background-color: white;
 }
 
-.group-list {
+.group-list, .my-profile {
   list-style: none;
   max-width: 90%;
   margin: 1rem 5%;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.2rem;
+  background-color: white;
 }
 
 .comment-list__item {

@@ -6,7 +6,7 @@ import PostList from '../components/PostList';
 import GroupList from '../components/GroupList';
 import Search from '../components/Search';
 import Profile from '../components/Profile';
-import { QUERY_POSTS, QUERY_GROUPS } from '../utils/queries';
+import { QUERY_POSTS, QUERY_GROUPS, QUERY_ME_BASIC } from '../utils/queries';
 import Auth from '../utils/auth';
 
 
@@ -14,11 +14,13 @@ const Home = () => {
     // extract queries
     const { loadingPosts, data } = useQuery(QUERY_POSTS);
     const { data: groupsData } = useQuery(QUERY_GROUPS);
+    const { data: meData } = useQuery(QUERY_ME_BASIC);
 
     // extract data from queries
     const posts = data?.posts || [];
     const groups = groupsData?.groups || [];
-    console.log(groups, groupsData);
+    const me = meData?.me || [];
+
 
     // toggle Post form display to expand on click and hidden as a default
     const [showPostForm, setShowPostForm] = useState(false);
@@ -53,7 +55,7 @@ const Home = () => {
         <div className='home-page flex flex-center'>
             <div className="flex flex-between feed-layout">
                 <div className="side-container flex flex-columns">
-                    <Profile />
+                    <Profile me={me} />
                     <GroupList groups={groups} />
                 </div>
                 <div className="main-container">
