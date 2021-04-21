@@ -106,9 +106,36 @@ img {
   padding-bottom: 2.5rem;
 }
 
+.feed-layout {
+  /* flex-basis: 75%; */
+  max-width: 75vw;
+  flex-grow: 1;
+  gap:2rem !important;
+}
+.feed-layout > * {
+  flex-basis: 40%;
+}
+.main-container, .side-container {
+  background-color: white;
+  box-shadow: 0 0.5em 1em rgb(44 71 65 / 25%);
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;;
+  border-radius: 0.6rem;
+}
+
+.main-container {
+  flex-basis: 80%;
+}
+
 .post-list {
   max-width: 25vw;
   background-color: white;
+}
+
+.group-list {
+  list-style: none;
+  max-width: 90%;
+  margin: 1rem 5%;
 }
 
 .comment-list__item {
@@ -139,15 +166,7 @@ img {
   border-radius: 0.6rem;
 }
 
-.main-container {
-  background-color: white;
-  max-width: 32vw;
-  margin: 0 auto;
-  box-shadow: 0 0.5em 1em rgb(44 71 65 / 25%);
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;;
-  border-radius: 0.6rem;
-}
+
 
 .post-form {
   position: relative;

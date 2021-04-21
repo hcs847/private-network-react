@@ -54,3 +54,14 @@ export const QUERY_POSTS = gql`
   }
 }
 `;
+
+export const QUERY_GROUPS = gql`
+{
+  groups {
+    _id
+    groupName
+    groupAdmin
+    group_img
+  }
+}
+`;

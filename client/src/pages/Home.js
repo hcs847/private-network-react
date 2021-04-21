@@ -3,16 +3,22 @@ import { Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import PostForm from '../components/PostForm';
 import PostList from '../components/PostList';
-import { QUERY_POSTS } from '../utils/queries';
+import GroupList from '../components/GroupList';
+import Search from '../components/Search';
+import Profile from '../components/Profile';
+import { QUERY_POSTS, QUERY_GROUPS } from '../utils/queries';
 import Auth from '../utils/auth';
 
 
 const Home = () => {
-    // extract posts data
-    const { loading, data } = useQuery(QUERY_POSTS);
+    // extract queries
+    const { loadingPosts, data } = useQuery(QUERY_POSTS);
+    const { data: groupsData } = useQuery(QUERY_GROUPS);
 
-    // post list
+    // extract data from queries
     const posts = data?.posts || [];
+    const groups = groupsData?.groups || [];
+    console.log(groups, groupsData);
 
     // toggle Post form display to expand on click and hidden as a default
     const [showPostForm, setShowPostForm] = useState(false);
@@ -44,11 +50,20 @@ const Home = () => {
     }
 
     return (
-        <div className='home-page'>
-            <div className="main-container">
-                <PostForm showPostForm={showPostForm}
-                    onPost={togglePostForm} />
-                <PostList posts={posts} showComments={showComments} onComments={toggleComments} showCommentForm={showCommentForm} toggleCommentForm={toggleCommentForm} />
+        <div className='home-page flex flex-center'>
+            <div className="flex flex-between feed-layout">
+                <div className="side-container flex flex-columns">
+                    <Profile />
+                    <GroupList groups={groups} />
+                </div>
+                <div className="main-container">
+                    <PostForm showPostForm={showPostForm}
+                        onPost={togglePostForm} />
+                    <PostList posts={posts} showComments={showComments} onComments={toggleComments} showCommentForm={showCommentForm} toggleCommentForm={toggleCommentForm} />
+                </div>
+                <div className="side-container">
+                    <Search />
+                </div>
             </div>
         </div>
     )
