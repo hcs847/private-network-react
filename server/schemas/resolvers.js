@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models');
+const { User, Post, Group } = require('../models');
 const { signToken } = require('../utils/auth');
 
 
@@ -9,7 +9,8 @@ const resolvers = {
             if (context.user) {
                 return await User.findById(context.user._id)
                     // fetch the posts data related to the user
-                    .populate('posts');
+                    .populate('posts')
+                    .populate('groups');
             }
             throw new AuthenticationError('Not logged in')
         },
@@ -28,6 +29,11 @@ const resolvers = {
 
         posts: async () => {
             return Post.find();
+        },
+
+        group: async (parent, { _id }) => {
+            return Group.findById(_id)
+                .populate('users');
         }
 
     },
@@ -96,6 +102,25 @@ const resolvers = {
                 return updatedPost;
             }
             throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addGroup: async (parent, args, context) => {
+            if (context.user) {
+                const group = await Group.create({
+                    ...args,
+                    groupAdmin: `${context.user.firstName} ${context.user.lastName}`,
+                    users: { _id: context.user._id }
+                });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { groups: group._id } },
+                    { new: true }
+                )
+                return group;
+            }
+            throw new AuthenticationError('You need to be logged in for this action.')
+
         },
 
         deletePost: async (parent, args, context) => {

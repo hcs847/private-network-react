@@ -7,6 +7,7 @@ type User {
     lastName: String
     email:String
     posts: [Post]
+    groups: [Group]
 }
 
 type Post {
@@ -27,12 +28,20 @@ type Comment {
     commentBody: String
 }
 
+type Group {
+    _id: ID
+    groupName: String
+    groupAdmin: String
+    group_img: String
+    users: [User]
+}
+
 type Query {
     user(userId: ID!): User
     users: [User]
     post(_id: ID!): Post
     posts: [Post]
-
+    group(_id: ID!): Group
 }
 
 input PostInput {
@@ -52,6 +61,7 @@ type Mutation {
     login(email: String!, password: String!): Auth
     addPost(input: PostInput): Post
     addComment(postId: ID!, commentBody:String!): Post
+    addGroup(groupName: String!, groupAdmin: String, grou_img: String) : Group
     deletePost(postId: ID!): Post
 }
 `;
