@@ -37,6 +37,7 @@ type Group {
 }
 
 type Query {
+    me: User
     user(userId: ID!): User
     users: [User]
     post(_id: ID!): Post
