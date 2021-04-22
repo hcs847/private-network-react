@@ -55,7 +55,7 @@ body.modal-open {
   overflow:hidden;
 }
 h1,h2,h3,h4 {
-  padding: 0.2em;
+  padding-left: 0.5rem;
   line-height: 1;
 }
 
@@ -150,6 +150,14 @@ img {
   background-color: white;
 }
 
+.groups, .profile {
+  max-width: 90%;
+  margin-left: 0.5rem;
+}
+
+.title {
+  font-size: 1.4rem;
+}
 .comment-list__item {
   background-color: var(--body);
   border-radius: 0.4rem;
@@ -168,7 +176,7 @@ img {
 }
 
 
-.login-join-background, .post-form {
+.login-join-background, .post-form, .search-form {
   align-self: center;
   max-width: 25vw;
   margin-left: 5vw;
@@ -180,9 +188,17 @@ img {
 
 
 
-.post-form {
+.post-form, .search-form {
   position: relative;
   margin: 2em auto !important;
+}
+
+.search-form {
+  max-width :95%;
+}
+.search-form input {
+  width:100%;
+  margin-left: 0.3rem;
 }
 .comments-card {
   position: relative;
@@ -265,6 +281,10 @@ gap:1rem;
 .flex-center {
   justify-content: center;
   align-items: center;
+}
+
+.flex-left {
+  justify-content: left;
 }
 
 .flex-columns {

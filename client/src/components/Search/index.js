@@ -1,10 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { RiSearchLine } from "react-icons/ri";
 
 const Search = () => {
     return (
-        <h3>
-            Search
-        </h3>
+        <div className="search-form ">
+            <form className='flex flex-between'>
+                <RiSearchLine className='icons title center' />
+                <input
+                    className='center'
+                    type="text"
+                    placeholder='Search'
+                />
+            </form>
+
+        </div>
     )
 }
 

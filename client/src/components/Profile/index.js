@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { CgProfile } from "react-icons/cg";
+
+
 
 const Profile = ({ me }) => {
     return (
         <>
-            <h3>
-                My Profile
-        </h3>
+            <div className="flex flex-left profile">
+                <CgProfile className='icons title' />
+                <h3 className='title'>
+                    My Profile
+                </h3>
+            </div>
             {me && (
                 <ul className='my-profile card'>
                     <li>{me.firstName} {me.lastName}</li>
@@ -13,8 +19,8 @@ const Profile = ({ me }) => {
                 </ul>
             )
             }
-
         </>
+
     )
 }
 
