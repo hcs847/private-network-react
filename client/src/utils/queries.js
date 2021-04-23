@@ -29,8 +29,8 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_USER = gql`
-query user($userId: ID!) {
-    user(userId: $userId){
+query user($_id: ID!) {
+    user(_id: $_id){
         _id
         email
         firstName

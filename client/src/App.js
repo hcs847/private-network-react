@@ -5,6 +5,8 @@ import ApolloClient from 'apollo-boost';
 
 import Landing from './pages/Landing';
 import Home from './pages/Home';
+import ProfilePage from './pages/ProfilePage';
+import Group from './pages/Group';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header';
@@ -22,9 +24,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-
-
-
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -34,6 +33,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/home" component={Home} />
+            <Route exact path="/profile/:_id?" component={ProfilePage} />
+            <Route exact path="/group/:id" component={Group} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
           </Switch>

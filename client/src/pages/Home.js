@@ -4,7 +4,9 @@ import { useQuery } from '@apollo/react-hooks';
 import PostForm from '../components/PostForm';
 import PostList from '../components/PostList';
 import GroupList from '../components/GroupList';
+import GroupForm from '../components/GroupForm';
 import Search from '../components/Search';
+import SearchUser from '../components/SearchUser';
 import Profile from '../components/Profile';
 import { QUERY_POSTS, QUERY_GROUPS, QUERY_ME_BASIC } from '../utils/queries';
 import Auth from '../utils/auth';
@@ -65,6 +67,8 @@ const Home = () => {
                 </div>
                 <div className="side-container">
                     <Search />
+                    <SearchUser />
+                    <GroupForm />
                 </div>
             </div>
         </div>
