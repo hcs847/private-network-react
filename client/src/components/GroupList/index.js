@@ -16,7 +16,7 @@ const GroupList = ({ groups }) => {
                 <ul className='group-list'>
                     {groups &&
                         groups.map(group => (
-                            <li key={group._id}><Link to={`/group/${group._id}`}>{group.groupName}</Link></li>
+                            <li key={group._id}><Link className='link' to={`/group/${group._id}`}>{group.groupName}</Link></li>
                         ))
                     }
 

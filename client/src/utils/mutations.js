@@ -26,6 +26,7 @@ export const ADD_POST = gql`
 mutation addPost($input: PostInput) {
     addPost(input:$input) {
       _id,
+      postGroup
     	title,
     	body,
     	post_img

@@ -12,6 +12,7 @@ type User {
 
 type Post {
     _id: ID
+    postGroup: String
     title: String
     body: String
     post_img: String
@@ -35,6 +36,7 @@ type Group {
     groupAdmin: String
     group_img: String
     users: [User]
+    posts: [Post]
 }
 
 type Query {
@@ -48,6 +50,7 @@ type Query {
     }
 
 input PostInput {
+    postGroup: String
     title: String
     body: String
     post_img: String

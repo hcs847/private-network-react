@@ -42,11 +42,14 @@ const resolvers = {
 
         group: async (parent, { _id }) => {
             return Group.findOne({ _id })
-                .populate('users');
+                .populate('users')
+                .populate('posts');
         },
 
         groups: async () => {
-            return Group.find();
+            return Group.find()
+                .populate('users')
+                .populate('posts');
         }
 
     },
@@ -90,6 +93,12 @@ const resolvers = {
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
+                    { $push: { posts: post._id } },
+                    { new: true }
+                );
+
+                await Group.findByIdAndUpdate(
+                    { _id: post.postGroup },
                     { $push: { posts: post._id } },
                     { new: true }
                 );
