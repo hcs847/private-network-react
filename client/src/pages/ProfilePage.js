@@ -7,15 +7,15 @@ import Auth from '../utils/auth';
 
 const ProfilePage = () => {
     // check 
-    const { _id: userParam } = useParams();
+    const { id: _id } = useParams();
 
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME,
-        { variables: { _id: userParam } });
+    const { loading, data } = useQuery(_id ? QUERY_USER : QUERY_ME,
+        { variables: { _id } });
     const user = data?.me || data?.user || {};
 
-    console.log(user);
+    console.log("_id", _id, data, "=data");
 
-    if (Auth.loggedIn() && Auth.getProfile().data._id === userParam) {
+    if (Auth.loggedIn() && Auth.getProfile().data._id === _id) {
         return <Redirect to="/profile" />;
     }
 
@@ -40,7 +40,7 @@ const ProfilePage = () => {
                         <div className="card-title flex flex-left">
                             <CgProfile className='icons title' />
                             <h3 className='title'>
-                                {userParam ? `${user.firstName} ${user.lastName}'s` : 'My'} Profile
+                                {_id ? `${user.firstName} ${user.lastName}'s` : 'My'} Profile
                                 </h3>
                         </div>
 

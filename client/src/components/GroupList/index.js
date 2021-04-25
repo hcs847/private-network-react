@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { RiGroup2Fill } from "react-icons/ri";
 
 const GroupList = ({ groups }) => {
@@ -15,7 +16,7 @@ const GroupList = ({ groups }) => {
                 <ul className='group-list'>
                     {groups &&
                         groups.map(group => (
-                            <li key={group._id}>{group.groupName}</li>
+                            <li key={group._id}><Link to={`/group/${group._id}`}>{group.groupName}</Link></li>
                         ))
                     }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Comments from '../Comments';
 import CommentForm from '../CommentForm';
 
@@ -13,7 +14,7 @@ const PostList = ({ posts, showComments, onComments, showCommentForm, toggleComm
                 posts.map(post => (
 
                     <div key={post._id} className="card">
-
+                        <p><Link to={`/profile/${post.createdById}`}>{post.createdByName}</Link></p>
                         <p>{post.body}</p>
                         <div className="card-image flex flex-columns">
                             <img className='post-img' src={post.post_img} alt="" />

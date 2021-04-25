@@ -18,9 +18,13 @@ const postSchema = new Schema({
         type: String
     },
 
-    email: {
+    createdByName: {
         type: String,
         required: true
+    },
+
+    createdById: {
+        type: String
     },
 
     comments: [commentSchema]
