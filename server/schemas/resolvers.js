@@ -16,14 +16,12 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
-        user: async (parent, args, context) => {
-            if (context.user) {
-                return await User.findById(context.user._id)
-                    // fetch the posts data related to the user
-                    .populate('posts')
-                    .populate('groups');
-            }
-            throw new AuthenticationError('Not logged in')
+        user: async (parent, { _id }) => {
+
+            return User.findOne({ _id })
+                // fetch the posts data related to the user
+                .populate('posts')
+                .populate('groups');
         },
 
         users: async () => {
@@ -43,7 +41,7 @@ const resolvers = {
         },
 
         group: async (parent, { _id }) => {
-            return Group.findById(_id)
+            return Group.findOne({ _id })
                 .populate('users');
         },
 
@@ -86,7 +84,8 @@ const resolvers = {
                 const post = await Post.create({
                     // spreading the PostInput paramateres
                     ...input,
-                    email: context.user.email
+                    createdByName: `${context.user.firstName} ${context.user.lastName}`,
+                    createdById: context.user._id
                 });
 
                 await User.findByIdAndUpdate(

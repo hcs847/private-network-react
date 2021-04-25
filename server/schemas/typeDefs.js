@@ -15,7 +15,8 @@ type Post {
     title: String
     body: String
     post_img: String
-    email: String
+    createdByName: String
+    createdById: String
     commentCount: Int
     comments: [Comment]
 }

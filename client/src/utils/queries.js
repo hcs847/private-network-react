@@ -51,7 +51,8 @@ query post($_id:ID!) {
     _id,
     title,
     post_img
-    email
+    createdByName
+    createdById
     commentCount
     comments {
       _id
@@ -71,6 +72,8 @@ export const QUERY_POSTS = gql`
     title
     body
     post_img
+    createdByName
+    createdById
     commentCount
     comments {
       _id
@@ -86,6 +89,17 @@ export const QUERY_POSTS = gql`
 export const QUERY_GROUPS = gql`
 {
   groups {
+    _id
+    groupName
+    groupAdmin
+    group_img
+  }
+}
+`;
+
+export const QUERY_GROUP = gql`
+query group($_id:ID!) {
+  group(_id:$_id) {
     _id
     groupName
     groupAdmin

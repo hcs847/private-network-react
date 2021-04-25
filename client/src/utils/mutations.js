@@ -29,11 +29,10 @@ mutation addPost($input: PostInput) {
     	title,
     	body,
     	post_img
-    	email
-        firstName
-        lastName
-        commentCount
-        comments {
+    	createdByName
+      createdById
+      commentCount
+      comments {
             _id
         }
       }

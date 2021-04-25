@@ -17,7 +17,7 @@ const Header = () => {
                     <ul className='nav-list flex'>
                         <li className='nav-link'><Link to='/home'>Home</Link></li>
                         <li className='nav-link'><Link to='/profile'>Me</Link></li>
-                        <li className='nav-link'><Link to='/group/:id'>My Groups</Link></li>
+                        {/* <li className='nav-link'><Link to='/group/:id'>My Groups</Link></li> */}
                     </ul>
                     <ul className='nav-list'>
                         <li className='nav-link'><a href="/" onClick={logout}>Logout</a></li>
