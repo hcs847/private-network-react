@@ -12,6 +12,7 @@ const PostForm = ({ showPostForm, onPost }) => {
 
     // handling state for post form fields
     const [postState, setPostState] = useState({
+        postGroup: '',
         title: '',
         body: '',
         post_img: ''
@@ -35,6 +36,7 @@ const PostForm = ({ showPostForm, onPost }) => {
                 variables: { input: { ...postState } }
             });
             setPostState({
+                postGroup: '',
                 title: '',
                 body: '',
                 post_img: ''
@@ -61,6 +63,15 @@ const PostForm = ({ showPostForm, onPost }) => {
                         </div>
 
                         <form className={`flex flex-columns ${!showPostForm ? 'no-display' : ''}`} onSubmit={handleSubmitPostForm}>
+                            <div className='flex flex-between'>
+                                <label htmlFor="postGroup">Post group</label>
+                                <input
+                                    type="text"
+                                    name="postGroup"
+                                    value={postState.postGroup}
+                                    onChange={handleChangePostForm}
+                                />
+                            </div>
                             <div className='flex flex-between'>
                                 <label htmlFor="title">Post title</label>
                                 <input

@@ -23,6 +23,8 @@ export const QUERY_ME = gql`
     }
     posts {
       title
+      post_img
+      body
     }
   }
 }
@@ -49,6 +51,7 @@ export const QUERY_POST = gql`
 query post($_id:ID!) {
   post(_id:$_id){
     _id,
+    postGroup
     title,
     post_img
     createdByName
@@ -69,6 +72,7 @@ export const QUERY_POSTS = gql`
 {
   posts {
     _id
+    postGroup
     title
     body
     post_img
@@ -93,6 +97,10 @@ export const QUERY_GROUPS = gql`
     groupName
     groupAdmin
     group_img
+    posts {
+      _id
+      title
+    }
   }
 }
 `;

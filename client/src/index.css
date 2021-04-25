@@ -69,7 +69,7 @@ h1,h2,h3,h4 {
 
 a, a:visited {
   text-decoration: none;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   color:inherit;
 }
 
@@ -272,13 +272,13 @@ img {
   letter-spacing: 1px;
 }
 .nav {
-  margin: 0.3rem 0.5rem;
+  margin: 0.3rem 1rem;
 
 }
 
 .nav-list, .comments-list {
 list-style: none;
-gap:1rem;
+gap:1rem !important;
 }
 
 .nav-link {
@@ -442,5 +442,6 @@ input {
 .link {
   color:var(--med-green);
   font-weight: bolder;
+  
 }
 

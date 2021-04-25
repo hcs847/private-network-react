@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_GROUP } from '../utils/queries';
 import Auth from '../utils/auth';
@@ -30,6 +30,8 @@ const Group = () => {
                     <p>{group.group_img}</p>
 
                 </div>
+
+
             </div>
         </div>
     )
