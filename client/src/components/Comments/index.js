@@ -11,7 +11,7 @@ const Comments = ({ comments, showComments, onComments, commentCount }) => {
                     comments.map(comment => (
                         <li className='comment-list__item flex flex-columns' key={comment._id}>
                             <p className='created-by-on'>
-                                {comment.firstName} {comment.lastName}
+                                {comment.createdByName}
                                 <span style={{ fontWeight: 'lighter', paddingLeft: '5px' }}>{comment.createdAt}</span></p>
                             <p className='comment-list__body'>{comment.commentBody}</p></li>
                     ))

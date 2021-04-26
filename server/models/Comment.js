@@ -9,12 +9,12 @@ const commentSchema = new Schema(
             maxlength: 280
         },
 
-        firstName: {
-            type: String,
+        createdByName: {
+            type: String
         },
 
-        lastName: {
-            type: String,
+        createdById: {
+            type: String
         },
 
         createdAt: {

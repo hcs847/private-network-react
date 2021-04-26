@@ -115,8 +115,8 @@ const resolvers = {
                         $push: {
                             comments: {
                                 commentBody,
-                                firstName: context.user.firstName,
-                                lastName: context.user.lastName
+                                createdByName: `${context.user.firstName} ${context.user.lastName}`,
+                                createdById: context.user._id
                             }
                         }
                     },
