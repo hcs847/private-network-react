@@ -353,7 +353,8 @@ gap:1rem !important;
 input.forminput,
 textarea.forminput,
 textarea,
-input {
+input,
+#postGroup {
   float: right;
   color: var(--med-gray);
   font-size: 1rem;
@@ -365,7 +366,7 @@ input {
   padding: 0 0.625rem;   
 }
 
-.btn, .btn-modal {
+.btn, .btn-modal, .dropdwon-trigger {
   cursor: pointer;
   border-radius: 0.6rem;
   width: 100%;
@@ -390,6 +391,7 @@ input {
   text-align: left;
   padding-left: 0.5em;
 }
+
 
 .btn-no-styling {
   border: none;

@@ -39,6 +39,9 @@ const Home = () => {
         }
     };
 
+    // groups dropdown menu
+
+
     const [showCommentForm, setShowCommentForm] = useState(false);
     const toggleCommentForm = () => {
         setShowCommentForm(!showCommentForm);
@@ -62,7 +65,7 @@ const Home = () => {
                 </div>
                 <div className="main-container">
                     <PostForm showPostForm={showPostForm}
-                        onPost={togglePostForm} />
+                        onPost={togglePostForm} groups={groups} />
                     <PostList posts={posts} showComments={showComments} onComments={toggleComments} showCommentForm={showCommentForm} toggleCommentForm={toggleCommentForm} />
                 </div>
                 <div className="side-container">

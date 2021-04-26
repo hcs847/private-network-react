@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
+import GroupDropdown from '../GroupDropdown';
 import { GrClose } from 'react-icons/gr';
 
 
 
-const PostForm = ({ showPostForm, onPost }) => {
+const PostForm = ({ showPostForm, onPost, groups }) => {
 
     // create a post and update graphql
     const [addPost, { error }] = useMutation(ADD_POST);
@@ -63,15 +64,9 @@ const PostForm = ({ showPostForm, onPost }) => {
                         </div>
 
                         <form className={`flex flex-columns ${!showPostForm ? 'no-display' : ''}`} onSubmit={handleSubmitPostForm}>
-                            <div className='flex flex-between'>
-                                <label htmlFor="postGroup">Post group</label>
-                                <input
-                                    type="text"
-                                    name="postGroup"
-                                    value={postState.postGroup}
-                                    onChange={handleChangePostForm}
-                                />
-                            </div>
+
+                            <GroupDropdown groups={groups} getGroupId={handleChangePostForm} />
+
                             <div className='flex flex-between'>
                                 <label htmlFor="title">Post title</label>
                                 <input

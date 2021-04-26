@@ -24,8 +24,8 @@ type Post {
 
 type Comment {
     _id: ID
-    firstName: String
-    lastName: String
+    createdByName: String
+    createdById: String
     createdAt: String
     commentBody: String
 }

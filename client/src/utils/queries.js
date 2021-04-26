@@ -60,8 +60,8 @@ query post($_id:ID!) {
     comments {
       _id
       createdAt
-      firstName
-      lastName
+      createdByName
+      createdById
       commentBody
     }
   }  
@@ -82,8 +82,8 @@ export const QUERY_POSTS = gql`
     comments {
       _id
       createdAt
-      firstName
-      lastName
+      createdByName
+      createdById
       commentBody
     }
   }

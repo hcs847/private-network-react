@@ -48,8 +48,8 @@ mutation addComment($postId: ID!, $commentBody: String! ){
         comments {
           _id
           commentBody
-          lastName
-          firstName
+          createdByName
+          createdById
         }  
       }
     }
