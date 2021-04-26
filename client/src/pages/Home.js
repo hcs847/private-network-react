@@ -14,12 +14,12 @@ import Auth from '../utils/auth';
 
 const Home = () => {
     // extract queries
-    const { loadingPosts, data } = useQuery(QUERY_POSTS);
+    const { data: postsData } = useQuery(QUERY_POSTS);
     const { data: groupsData } = useQuery(QUERY_GROUPS);
     const { data: meData } = useQuery(QUERY_ME_BASIC);
 
     // extract data from queries
-    const posts = data?.posts || [];
+    const posts = postsData?.posts || [];
     const groups = groupsData?.groups || [];
     const me = meData?.me || [];
 
