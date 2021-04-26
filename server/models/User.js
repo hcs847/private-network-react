@@ -25,6 +25,10 @@ const userSchema = new Schema(
             required: true,
             minlength: 5
         },
+
+        userPhoto: {
+            type: String
+        },
         posts: [
             {
                 type: Schema.Types.ObjectId,

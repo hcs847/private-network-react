@@ -112,6 +112,8 @@ img {
   color: white;
   margin-left: 0.5rem;
   line-height: 1.3;
+  /* padding-top: 0.5em;
+  padding-bottom: 0.5em; */
 
 }
 .home-page{
@@ -155,6 +157,10 @@ img {
   font-weight: 700;
   font-size: 1.2rem;
   background-color: white;
+}
+
+.my-profile > li {
+  font-weight: 500;
 }
 
 .groups, .profile {

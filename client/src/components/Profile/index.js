@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 
 
@@ -15,7 +16,7 @@ const Profile = ({ me }) => {
                 </div>
                 {me && (
                     <ul className='my-profile'>
-                        <li>{me.firstName} {me.lastName}</li>
+                        <li> <Link className='link' to='/profile'>{me.firstName} {me.lastName}</Link></li>
                         <li>{me.email}</li>
                     </ul>
                 )
