@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_GROUP } from '../utils/queries';
+import { QUERY_GROUP, QUERY_POSTS } from '../utils/queries';
 import Auth from '../utils/auth';
 
 const Group = () => {
@@ -28,7 +28,6 @@ const Group = () => {
                     <p>Group's Name: {group.groupName}</p>
                     <p>Group's Admin: {group.groupAdmin}</p>
                     <p>{group.group_img}</p>
-
                 </div>
 
 
