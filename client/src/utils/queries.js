@@ -118,7 +118,7 @@ query group($_id:ID!) {
 `;
 
 export const QUERY_POSTS_BY_GROUP = gql`
-postsByGroup($postGroup: String!){
+query postsByGroup($postGroup: String!){
     postsByGroup(postGroup: $postGroup) {
       _id
       postGroup
