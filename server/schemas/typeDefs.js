@@ -45,6 +45,7 @@ type Query {
     users: [User]
     post(_id: ID!): Post
     posts: [Post]
+    postsByGroup(postGroup: String!): [Post]
     group(_id: ID!): Group
     groups: [Group]
     }

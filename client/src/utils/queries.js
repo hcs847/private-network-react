@@ -90,6 +90,7 @@ export const QUERY_POSTS = gql`
 }
 `;
 
+
 export const QUERY_GROUPS = gql`
 {
   groups {
@@ -114,4 +115,21 @@ query group($_id:ID!) {
     group_img
   }
 }
+`;
+
+export const QUERY_POSTS_BY_GROUP = gql`
+postsByGroup($postGroup: String!){
+    postsByGroup(postGroup: $postGroup) {
+      _id
+      postGroup
+      title
+      body
+      post_img
+      commentCount
+      comments {
+        commentBody
+        createdByName
+    }
+    }
+  }
 `;
