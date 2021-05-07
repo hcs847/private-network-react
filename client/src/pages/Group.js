@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_GROUP, QUERY_POSTS } from '../utils/queries';
+import { QUERY_GROUP, QUERY_POSTS_BY_GROUP } from '../utils/queries';
 import Auth from '../utils/auth';
 
 const Group = () => {
@@ -12,7 +12,14 @@ const Group = () => {
         variables: { _id }
     });
 
+    const { postsData } = useQuery(QUERY_POSTS_BY_GROUP, {
+        variables: { postGroup: _id }
+    });
+
     const group = data?.group || {};
+    const groupPosts = postsData?.postsByGroup || {};
+
+    console.log("groupPosts: ", groupPosts);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -29,6 +36,7 @@ const Group = () => {
                     <p>Group's Admin: {group.groupAdmin}</p>
                     <p>{group.group_img}</p>
                 </div>
+
 
 
             </div>
