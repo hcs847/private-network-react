@@ -90,7 +90,6 @@ export const QUERY_POSTS = gql`
 }
 `;
 
-
 export const QUERY_GROUPS = gql`
 {
   groups {
@@ -129,7 +128,7 @@ query postsByGroup($postGroup: String!){
       comments {
         commentBody
         createdByName
-    }
+      }
     }
   }
 `;
