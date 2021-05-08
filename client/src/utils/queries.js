@@ -112,23 +112,13 @@ query group($_id:ID!) {
     groupName
     groupAdmin
     group_img
-  }
-}
-`;
-
-export const QUERY_POSTS_BY_GROUP = gql`
-query postsByGroup($postGroup: String!){
-    postsByGroup(postGroup: $postGroup) {
+    posts {
       _id
-      postGroup
       title
       body
       post_img
-      commentCount
-      comments {
-        commentBody
-        createdByName
-      }
+    
     }
   }
+}
 `;

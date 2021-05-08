@@ -40,10 +40,6 @@ const resolvers = {
             return Post.find();
         },
 
-        postsByGroup: async (parent, { postGroup }) => {
-            return Post.find({ postGroup });
-        }
-        ,
         group: async (parent, { _id }) => {
             return Group.findOne({ _id })
                 .populate('users')
