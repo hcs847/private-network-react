@@ -127,6 +127,25 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
+        likePost: async (parent, { postId }, context) => {
+            if (context.user) {
+                const updatedPost = await Post.findOneAndUpdate(
+                    { _id: postId },
+                    {
+                        $push: {
+                            likes: {
+                                likedByName: `${context.user.firstName} ${context.user.lastName}`,
+                                likeById: context.user._id
+                            }
+                        }
+                    },
+                    { new: true, runValidators: true }
+                );
+                return updatedPost;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        }
+        ,
         addGroup: async (parent, args, context) => {
             if (context.user) {
                 const group = await Group.create({

@@ -20,6 +20,8 @@ type Post {
     createdById: String
     commentCount: Int
     comments: [Comment]
+    likeCount: Int
+    likes: [Like]
 }
 
 type Comment {
@@ -28,6 +30,13 @@ type Comment {
     createdById: String
     createdAt: String
     commentBody: String
+}
+
+type Like {
+    _id: ID
+    likedByName: String
+    likedById: String
+    likedAt: String
 }
 
 type Group {
@@ -67,6 +76,8 @@ type Mutation {
     login(email: String!, password: String!): Auth
     addPost(input: PostInput): Post
     addComment(postId: ID!, commentBody:String!): Post
+    likePost(postId: ID!): Post
+    unLikePost(postId: ID!): Post
     addGroup(groupName: String!, groupAdmin: String, grou_img: String) : Group
     deletePost(postId: ID!): Post
     deleteGroup(groupId: ID!): Group
