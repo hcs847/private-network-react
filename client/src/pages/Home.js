@@ -48,6 +48,9 @@ const Home = () => {
     const [showComments, setShowComments] = useState(false);
     const toggleComments = () => setShowComments(!showComments);
 
+    //toggle likes display
+    const [showLikes, setShowLikes] = useState(false);
+    const toggleLikesDisplay = () => setShowLikes(!showLikes);
 
     // protect routes, if user is not logged in, redirect to landing page
     if (!Auth.loggedIn()) {
@@ -69,6 +72,8 @@ const Home = () => {
                         onComments={toggleComments}
                         showCommentForm={showCommentForm}
                         toggleCommentForm={toggleCommentForm}
+                        toggleLikes={toggleLikesDisplay}
+                        showLikes={showLikes}
                         usersId={me._id} />
                 </div>
                 <div className="side-container">

@@ -5,7 +5,7 @@ import Likes from '../Likes';
 import Comments from '../Comments';
 import CommentForm from '../CommentForm';
 
-const PostList = ({ posts, showComments, onComments, showCommentForm, toggleCommentForm, usersId }) => {
+const PostList = ({ posts, showComments, onComments, showCommentForm, toggleCommentForm, toggleLikes, showLikes, usersId }) => {
     if (!posts.length) {
         return <h3>No posts yet.</h3>;
     }
@@ -32,6 +32,9 @@ const PostList = ({ posts, showComments, onComments, showCommentForm, toggleComm
                             </div>
                             <Likes
                                 likeCount={post.likeCount}
+                                toggleLikes={toggleLikes}
+                                showLikes={showLikes}
+                                likes={post.likes}
                             />
                         </div>
                         <div className="flex interactions">

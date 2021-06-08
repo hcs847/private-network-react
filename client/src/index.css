@@ -178,7 +178,8 @@ img {
   background-color: transparent !important;
 }
 
-.comment-list__item {
+.comment-list__item,
+.like-list__item {
   background-color: var(--body);
   border-radius: 0.4rem;
   margin-bottom: 0.5rem;
