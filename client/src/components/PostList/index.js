@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LikeButton from '../LikeButton';
+import Likes from '../Likes';
 import Comments from '../Comments';
 import CommentForm from '../CommentForm';
 
-const PostList = ({ posts, showComments, onComments, showCommentForm, toggleCommentForm }) => {
+const PostList = ({ posts, showComments, onComments, showCommentForm, toggleCommentForm, usersId }) => {
     if (!posts.length) {
         return <h3>No posts yet.</h3>;
     }
@@ -20,17 +22,29 @@ const PostList = ({ posts, showComments, onComments, showCommentForm, toggleComm
                             <img className='post-img' src={post.post_img} alt="" />
                             <h5>{post.title}</h5>
                         </div>
-                        <div className="comments-card">
-                            <Comments
-                                comments={post.comments}
-                                commentCount={post.commentCount}
-                                showComments={showComments}
-                                onComments={onComments} />
+                        <div className="flex interactions">
+                            <div className="comments-card flex flex-columns">
+                                <Comments
+                                    comments={post.comments}
+                                    commentCount={post.commentCount}
+                                    showComments={showComments}
+                                    onComments={onComments} />
+                            </div>
+                            <Likes
+                                likeCount={post.likeCount}
+                            />
                         </div>
-                        <CommentForm
-                            postId={post._id}
-                            showCommentForm={showCommentForm}
-                            toggleCommentForm={toggleCommentForm} />
+                        <div className="flex interactions">
+                            <LikeButton
+                                postId={post._id}
+                                likes={post.likes}
+                                usersId={usersId}
+                            />
+                            <CommentForm
+                                postId={post._id}
+                                showCommentForm={showCommentForm}
+                                toggleCommentForm={toggleCommentForm} />
+                        </div>
                     </div>
 
                 ))

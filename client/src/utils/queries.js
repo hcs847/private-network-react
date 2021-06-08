@@ -56,6 +56,12 @@ query post($_id:ID!) {
     post_img
     createdByName
     createdById
+    likeCount
+    likes {
+      _id
+      likedByName
+      likedAt
+    }
     commentCount
     comments {
       _id
@@ -78,6 +84,13 @@ export const QUERY_POSTS = gql`
     post_img
     createdByName
     createdById
+    likeCount
+    likes {
+      _id
+      likedByName
+      likedById
+      likedAt
+    }
     commentCount
     comments {
       _id
