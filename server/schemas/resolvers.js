@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Post, Group } = require('../models');
+const { find } = require('../models/Post');
 const { signToken } = require('../utils/auth');
 
 
@@ -21,7 +22,8 @@ const resolvers = {
             return User.findOne({ _id })
                 // fetch the posts data related to the user
                 .populate('posts')
-                .populate('groups');
+                .populate('groups')
+                .populate('likedPosts');
         },
 
         users: async () => {
@@ -29,7 +31,8 @@ const resolvers = {
                 // omits the Mongoose __v property the user's password information,
                 .select('-__v -password')
                 // display sub documents of posts related to user
-                .populate('posts');
+                .populate('posts')
+                .populate('likedPosts');
         },
 
         post: async (parent, { _id }) => {
@@ -37,8 +40,16 @@ const resolvers = {
         },
 
         posts: async () => {
-            return Post.find();
+            return Post.find()
+                .populate('likes');
         },
+
+        // ======================================
+        liked: async (parent, { postId }, context) => {
+            return await User.findOne({ _id: context.user._id }).lean();
+
+        },
+        //====================================
 
         group: async (parent, { _id }) => {
             return Group.findOne({ _id })
@@ -135,13 +146,19 @@ const resolvers = {
                         $push: {
                             likes: {
                                 likedByName: `${context.user.firstName} ${context.user.lastName}`,
-                                likeById: context.user._id
+                                likedById: context.user._id
                             }
                         }
                     },
                     { new: true, runValidators: true }
                 );
-                return updatedPost;
+                const updateduser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { likedPosts: postId } },
+
+                ).populate('likedPosts');
+
+                return { updatedPost, updateduser };
             }
             throw new AuthenticationError('You need to be logged in!');
         }

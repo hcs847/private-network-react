@@ -40,6 +40,13 @@ const userSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'Group'
             }
+        ],
+        likedPosts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Post'
+            }
+
         ]
     }
 );

@@ -39,9 +39,6 @@ const Home = () => {
         }
     };
 
-    // groups dropdown menu
-
-
     const [showCommentForm, setShowCommentForm] = useState(false);
     const toggleCommentForm = () => {
         setShowCommentForm(!showCommentForm);
@@ -50,6 +47,7 @@ const Home = () => {
     // toggle comments display to be hidden as a default
     const [showComments, setShowComments] = useState(false);
     const toggleComments = () => setShowComments(!showComments);
+
 
     // protect routes, if user is not logged in, redirect to landing page
     if (!Auth.loggedIn()) {
@@ -66,7 +64,12 @@ const Home = () => {
                 <div className="main-container">
                     <PostForm showPostForm={showPostForm}
                         onPost={togglePostForm} groups={groups} />
-                    <PostList posts={posts} showComments={showComments} onComments={toggleComments} showCommentForm={showCommentForm} toggleCommentForm={toggleCommentForm} />
+                    <PostList posts={posts}
+                        showComments={showComments}
+                        onComments={toggleComments}
+                        showCommentForm={showCommentForm}
+                        toggleCommentForm={toggleCommentForm}
+                        usersId={me._id} />
                 </div>
                 <div className="side-container">
                     <Search />

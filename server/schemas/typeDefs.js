@@ -8,6 +8,7 @@ type User {
     email:String
     posts: [Post]
     groups: [Group]
+    likedPosts: [Post]
 }
 
 type Post {
@@ -56,6 +57,7 @@ type Query {
     posts: [Post]
     group(_id: ID!): Group
     groups: [Group]
+    liked(postId: ID): User
     }
 
 input PostInput {

@@ -34,6 +34,10 @@
   color:var(--med-gray);
 }
 
+.navy-font {
+  color:var(--navy);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -244,12 +248,14 @@ img {
   background-color: var(--light-gray);
 }
 
-.comments-card {
+.interactions {
+  gap: 0.5rem !important;
   position: relative;
+  padding: 0.2rem 0;
 }
 
 .post-form::after,
-.comments-card::after {
+.interactions::after {
   position: absolute;
   content: '';
   height: 1px;
@@ -262,11 +268,11 @@ img {
 .post-form::after {
   bottom: -16px;
 }
-.comments-card::after {
+.interactions::after {
   bottom: -4px;
 }
 
-.add-comment {
+.add-comment, .like-post {
   margin-top: 0.5rem;
 }
 
@@ -410,6 +416,7 @@ input,
   cursor: pointer;
   outline: none;
   background-color: transparent;
+  align-self: start;
 }
 
 .btn-no-styling:hover {
