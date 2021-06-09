@@ -67,3 +67,16 @@ export const LIKE_POST = gql`
     }
   }
 `;
+
+export const UNLIKE_POST = gql`
+  mutation unlikePost($postId: ID!){
+    unlikePost(postId: $postId) {
+      _id
+      likes{
+        _id
+        likedAt
+        likedByName
+      }
+    }
+  }
+`;

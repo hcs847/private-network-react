@@ -79,7 +79,7 @@ type Mutation {
     addPost(input: PostInput): Post
     addComment(postId: ID!, commentBody:String!): Post
     likePost(postId: ID!): Post
-    unLikePost(postId: ID!): Post
+    unlikePost(postId: ID!): Post
     addGroup(groupName: String!, groupAdmin: String, grou_img: String) : Group
     deletePost(postId: ID!): Post
     deleteGroup(groupId: ID!): Group
