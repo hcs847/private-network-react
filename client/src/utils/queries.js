@@ -70,6 +70,12 @@ query post($_id:ID!) {
       createdById
       commentBody
     }
+    likes {
+      _id
+      likedAt
+      likedByName
+      likedById
+    }
   }  
 }
 `;
@@ -98,6 +104,12 @@ export const QUERY_POSTS = gql`
       createdByName
       createdById
       commentBody
+    }
+    likes {
+      _id
+      likedAt
+      likedByName
+      likedById
     }
   }
 }

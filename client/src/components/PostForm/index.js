@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
+import { QUERY_POSTS } from '../../utils/queries';
 import GroupDropdown from '../GroupDropdown';
 import { GrClose } from 'react-icons/gr';
 
@@ -26,6 +27,7 @@ const PostForm = ({ showPostForm, onPost, groups }) => {
             [name]: value
         })
     }
+
     // when from is submited, graphql to be updated asynchronously 
     const handleSubmitPostForm = async event => {
         // disable default browser behavior on submit
@@ -34,7 +36,24 @@ const PostForm = ({ showPostForm, onPost, groups }) => {
         try {
             await addPost({
                 // syntax for passing form entries as input type PostInput
-                variables: { input: { ...postState } }
+                variables: { input: { ...postState } },
+
+                // updating cache manually after mutation to avoid refetching from server
+                update: (cache, { data: { addPost } }) => {
+                    try {
+                        // reading the current query from cache
+                        const data = cache.readQuery({ query: QUERY_POSTS });
+                        // adding data created by mutation
+                        data.posts = [...data.posts, addPost];
+                        // caching the updated data
+                        cache.writeQuery({
+                            query: QUERY_POSTS,
+                            data
+                        });
+                    } catch (err) {
+                        console.log(err);
+                    }
+                }
             });
             setPostState({
                 postGroup: '',

@@ -35,7 +35,18 @@ mutation addPost($input: PostInput) {
       commentCount
       comments {
             _id
+            createdAt
+            createdByName
+            createdById
+            commentBody
         }
+      likeCount
+      likes {
+      _id
+      likedAt
+      likedByName
+      likedById
+    }
       }
     }
 `;
@@ -59,10 +70,12 @@ export const LIKE_POST = gql`
   mutation likePost($postId: ID!){
     likePost(postId: $postId) {
       _id
+      likeCount
     likes {
       _id
       likedAt
       likedByName
+      likedById
     }
     }
   }
@@ -72,10 +85,12 @@ export const UNLIKE_POST = gql`
   mutation unlikePost($postId: ID!){
     unlikePost(postId: $postId) {
       _id
+      likeCount
       likes{
         _id
         likedAt
         likedByName
+        likedById
       }
     }
   }
