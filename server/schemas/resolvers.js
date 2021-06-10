@@ -131,7 +131,7 @@ const resolvers = {
                             }
                         }
                     },
-                    { new: true, runValidators: true }
+                    { new: true }
                 );
                 return updatedPost;
             }
@@ -150,15 +150,15 @@ const resolvers = {
                             }
                         }
                     },
-                    { new: true, runValidators: true }
+                    { new: true }
                 );
-                const updateduser = await User.findOneAndUpdate(
+                await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $addToSet: { likedPosts: postId } },
 
                 ).populate('likedPosts');
 
-                return { updatedPost, updateduser };
+                return updatedPost;
             }
             throw new AuthenticationError('You need to be logged in!');
         }

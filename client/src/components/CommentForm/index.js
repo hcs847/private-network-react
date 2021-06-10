@@ -4,7 +4,7 @@ import { ADD_COMMENT } from '../../utils/mutations';
 import { CgComment } from "react-icons/cg";
 
 
-const CommentForm = ({ postId, toggleCommentForm, showCommentForm }) => {
+const CommentForm = ({ postId, toggleCommentForm, showCommentForm, comments, commentCount }) => {
 
     // add a comment and update graphql
     const [addComment, { error }] = useMutation(ADD_COMMENT);
@@ -12,20 +12,24 @@ const CommentForm = ({ postId, toggleCommentForm, showCommentForm }) => {
     // handle state for comment form
     const [commentState, setCommentState] = useState({ commentBody: '' });
 
+    // capture updated comments array when posting a comment
+    const [numberOfComments, setnumberOfComments] = useState(commentCount);
+
     const handleChangeCommentForm = (event) => {
         setCommentState({
             ...commentState,
             commentBody: event.target.value
         });
-        // console.log("handleChange: ", commentState);
     }
 
     const handleSubmitCommentForm = async event => {
         event.preventDefault();
         try {
-            await addComment({
+            const { data } = await addComment({
                 variables: { postId, ...commentState }
             });
+            setnumberOfComments(data.addComment.commentCount);
+            console.log(await data.addComment.commentCount, "comments count", comments);
             setCommentState({
                 commentBody: '',
             });

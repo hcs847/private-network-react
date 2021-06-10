@@ -42,11 +42,15 @@ const PostList = ({ posts, showComments, onComments, showCommentForm, toggleComm
                                 postId={post._id}
                                 likes={post.likes}
                                 usersId={usersId}
+                                likeCount={post.likeCount}
                             />
                             <CommentForm
                                 postId={post._id}
                                 showCommentForm={showCommentForm}
-                                toggleCommentForm={toggleCommentForm} />
+                                toggleCommentForm={toggleCommentForm}
+                                comments={post.comments}
+                                commentCount={post.commentCount}
+                            />
                         </div>
                     </div>
 
