@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { LIKE_POST, UNLIKE_POST } from '../../utils/mutations';
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
@@ -11,24 +11,26 @@ const LikeButton = ({ postId, usersId, likes, likeCount }) => {
     // check if user liked the post
     const liked = likes?.filter(post => post.likedById === usersId);
 
-    // capture likeCount for re rendering on like or unlike
-    const [numberOfLikes, setNumberOfLikes] = useState(likeCount);
+    // // capture likeCount for re rendering on like or unlike
+    // const [numberOfLikes, setNumberOfLikes] = useState(likeCount);
 
 
     const handleLikePost = async event => {
         event.preventDefault();
         try {
             if (!liked.length) {
-                const { data } = await likePost({
+                await likePost({
                     variables: { postId }
+
                 });
-                setNumberOfLikes(data.likePost.likeCount);
+                // setNumberOfLikes(data.likePost.likeCount);
+
 
             } else {
-                const { data } = await unlikePost({
+                await unlikePost({
                     variables: { postId }
                 });
-                setNumberOfLikes(data.unlikePost.likeCount);
+                // setNumberOfLikes(data.unlikePost.likeCount);
 
             }
         } catch (err) {
@@ -46,6 +48,7 @@ const LikeButton = ({ postId, usersId, likes, likeCount }) => {
                 )
                 }
                 <span className='bold'>Like</span></button>
+            {(error || unlikeError) && <p>There was an error with your request.</p>}
         </div>
     )
 }

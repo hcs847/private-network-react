@@ -54,10 +54,17 @@ mutation addPost($input: PostInput) {
 export const ADD_COMMENT = gql`
 mutation addComment($postId: ID!, $commentBody: String! ){
       addComment(postId: $postId, commentBody: $commentBody) {
-        _id
+      _id
+      postGroup
+    	title,
+    	body,
+    	post_img
+    	createdByName
+      createdById
         commentCount
         comments {
           _id
+          createdAt
           commentBody
           createdByName
           createdById
