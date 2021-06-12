@@ -50,9 +50,9 @@ query user($_id: ID!) {
 export const QUERY_POST = gql`
 query post($_id:ID!) {
   post(_id:$_id){
-    _id,
+    _id
     postGroup
-    title,
+    title
     post_img
     createdByName
     createdById

@@ -48,7 +48,7 @@ const PostForm = ({ showPostForm, onPost, groups }) => {
                         // caching the updated data
                         cache.writeQuery({
                             query: QUERY_POSTS,
-                            data
+
                         });
                     } catch (err) {
                         console.log(err);
@@ -115,6 +115,8 @@ const PostForm = ({ showPostForm, onPost, groups }) => {
                                 />
                             </div>
                             <button className='btn'>Submit</button>
+                            {/* Error handling */}
+                            {error && <p>There was a problem with submiting your post.</p>}
                         </form>
                     </div>
                 </div>
