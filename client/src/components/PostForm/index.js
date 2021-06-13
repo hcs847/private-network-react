@@ -9,7 +9,7 @@ import { GrClose } from 'react-icons/gr';
 
 const PostForm = ({ showPostForm, onPost, groups }) => {
 
-    // create a post and update graphql
+    // create a post  
     const [addPost, { error }] = useMutation(ADD_POST);
 
     // handling state for post form fields
@@ -32,7 +32,6 @@ const PostForm = ({ showPostForm, onPost, groups }) => {
     const handleSubmitPostForm = async event => {
         // disable default browser behavior on submit
         event.preventDefault();
-        // console.log(postState);
         try {
             await addPost({
                 // syntax for passing form entries as input type PostInput
@@ -78,8 +77,10 @@ const PostForm = ({ showPostForm, onPost, groups }) => {
                 <div className="modal-overlay">
                     <div className='form-modal'>
                         <div className='flex flex-around'>
-                            <h3 style={{ display: 'inline-block' }} className='form-title'>Create a Post</h3>
-                            <button style={{ marginLeft: 'auto' }} type='button' className='icons icon-x' onClick={onPost}><GrClose /></button>
+                            <h3 className='form-title'>Create a Post</h3>
+                            <button style={{ marginLeft: 'auto' }}
+                                type='button' className='icons icon-x'
+                                onClick={onPost}><GrClose /></button>
                         </div>
 
                         <form className={`flex flex-columns ${!showPostForm ? 'no-display' : ''}`} onSubmit={handleSubmitPostForm}>

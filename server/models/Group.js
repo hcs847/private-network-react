@@ -11,7 +11,7 @@ const groupSchema = new Schema(
             type: String
         },
 
-        group_img: {
+        groupImg: {
             type: String
         },
 

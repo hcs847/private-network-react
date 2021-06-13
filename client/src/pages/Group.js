@@ -33,7 +33,7 @@ const Group = () => {
                             <h2>Group Page</h2>
                             <p>Group's Name: {group.groupName}</p>
                             <p>Group's Admin: {group.groupAdmin}</p>
-                            <p>{group.group_img}</p>
+                            <p>{group.groupImg}</p>
                         </div>
                     </div>
 

@@ -73,6 +73,26 @@ mutation addComment($postId: ID!, $commentBody: String! ){
     }
 `;
 
+export const ADD_GROUP = gql`
+  mutation addGroup($groupName: String!, $groupAdmin: String, $groupImg: String){
+    addPost(groupName: $groupName, groupAdmin: $groupAdmin, groupImg: $groupImg){
+      _id
+      groupName
+      groupAdmin
+      groupImg
+      users {
+        _id
+        firstName
+        lastName
+      }
+      posts {
+        _id
+        title
+      }
+    }
+  }
+  `;
+
 export const LIKE_POST = gql`
   mutation likePost($postId: ID!){
     likePost(postId: $postId) {
