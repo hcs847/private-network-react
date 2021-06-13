@@ -1,19 +1,19 @@
 import React from 'react'
 import pluralFormat from '../../utils/helpers'
 
-const Comments = ({ comments, showComments, onComments, commentCount }) => {
+const Comments = ({ comments, showComments, onComments, commentCount, commentsPost, postId }) => {
     return (
         <>
             {(commentCount > 0) &&
                 (
                     <button type='button'
                         className='btn-no-styling med-gray-font bold'
-                        onClick={onComments}>
+                        onClick={() => onComments(postId)}>
                         {commentCount} {pluralFormat('comment', commentCount)}
                     </button>
                 )
             }
-            <ul className={`${showComments ? 'comments-list' : 'no-display'}`}>
+            <ul className={`${(showComments && (commentsPost === postId)) ? 'comments-list' : 'no-display'}`}>
                 {
                     comments &&
                     comments.map(comment => (

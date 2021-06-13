@@ -40,13 +40,18 @@ const Home = () => {
     };
 
     const [showCommentForm, setShowCommentForm] = useState(false);
-    const toggleCommentForm = () => {
+    const [commentsPost, setCommentsPost] = useState('');
+    const toggleCommentForm = (id) => {
         setShowCommentForm(!showCommentForm);
+        setCommentsPost(id);
     }
 
     // toggle comments display to be hidden as a default
     const [showComments, setShowComments] = useState(false);
-    const toggleComments = () => setShowComments(!showComments);
+    const toggleComments = (id) => {
+        setShowComments(!showComments);
+        setCommentsPost(id);
+    };
 
     //toggle likes display
     const [showLikes, setShowLikes] = useState(false);
@@ -72,6 +77,8 @@ const Home = () => {
                         onComments={toggleComments}
                         showCommentForm={showCommentForm}
                         toggleCommentForm={toggleCommentForm}
+                        commentsPost={commentsPost}
+                        setCommentsPost={setCommentsPost}
                         toggleLikes={toggleLikesDisplay}
                         showLikes={showLikes}
                         usersId={me._id} />

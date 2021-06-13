@@ -1,9 +1,10 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { LIKE_POST, UNLIKE_POST } from '../../utils/mutations';
+import { QUERY_POSTS } from '../../utils/queries';
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 
-const LikeButton = ({ postId, usersId, likes, likeCount }) => {
+const LikeButton = ({ postId, usersId, likes }) => {
 
     const [likePost, { error }] = useMutation(LIKE_POST);
     const [unlikePost, { error: unlikeError }] = useMutation(UNLIKE_POST);
@@ -11,27 +12,31 @@ const LikeButton = ({ postId, usersId, likes, likeCount }) => {
     // check if user liked the post
     const liked = likes?.filter(post => post.likedById === usersId);
 
-    // // capture likeCount for re rendering on like or unlike
-    // const [numberOfLikes, setNumberOfLikes] = useState(likeCount);
-
-
     const handleLikePost = async event => {
         event.preventDefault();
         try {
             if (!liked.length) {
                 await likePost({
-                    variables: { postId }
-
+                    variables: { postId },
+                    update: (cache, { data: likePost }) => {
+                        try {
+                            const likeData = cache.readQuery({ query: QUERY_POSTS });
+                            const filteredLikeData = likeData.posts.filter(id => id._id !== postId);
+                            likeData && cache.writeQuery({
+                                query: QUERY_POSTS,
+                                data: [...filteredLikeData, likePost]
+                            });
+                            console.log("data=", likeData);
+                        } catch (err) {
+                            console.log(err);
+                        }
+                    }
                 });
-                // setNumberOfLikes(data.likePost.likeCount);
-
-
             } else {
                 await unlikePost({
                     variables: { postId }
                 });
-                // setNumberOfLikes(data.unlikePost.likeCount);
-
+                console.log(await likes, "==likes from unlike");
             }
         } catch (err) {
             console.log(err);

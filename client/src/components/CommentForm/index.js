@@ -5,7 +5,7 @@ import { QUERY_POSTS } from '../../utils/queries';
 import { CgComment } from "react-icons/cg";
 
 
-const CommentForm = ({ postId, toggleCommentForm, showCommentForm, comments, commentCount }) => {
+const CommentForm = ({ postId, toggleCommentForm, showCommentForm, commentsPost }) => {
 
     // add a comment and update graphql
     const [addComment, { error }] = useMutation(ADD_COMMENT);
@@ -20,11 +20,11 @@ const CommentForm = ({ postId, toggleCommentForm, showCommentForm, comments, com
         });
     };
 
+
+
     const handleSubmitCommentForm = async event => {
         event.preventDefault();
-
         try {
-            debugger
             await addComment({
                 variables: { postId, ...commentState },
                 update: (cache, { data: { addComment } }) => {
@@ -55,9 +55,9 @@ const CommentForm = ({ postId, toggleCommentForm, showCommentForm, comments, com
     return (
         <>
             <div className='add-comment'>
-                <button className='btn-no-styling flex add-comment-btn med-gray-font' onClick={toggleCommentForm}><CgComment /> <span className='bold'>Comment</span></button>
+                <button key={postId} className='btn-no-styling flex add-comment-btn med-gray-font' onClick={() => toggleCommentForm(postId)}><CgComment /> <span className='bold'>Comment</span></button>
             </div>
-            {showCommentForm && (
+            {(showCommentForm && commentsPost === postId) && (
                 <form className="add-comment-box flex flex-center" onSubmit={handleSubmitCommentForm}>
 
                     <label htmlFor="commentBody"></label>
