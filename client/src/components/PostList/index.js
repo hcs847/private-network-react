@@ -5,7 +5,7 @@ import Likes from '../Likes';
 import Comments from '../Comments';
 import CommentForm from '../CommentForm';
 
-const PostList = ({ posts, showComments, onComments, showCommentForm, toggleCommentForm, commentsPost, setCommentsPost, toggleLikes, showLikes, usersId }) => {
+const PostList = ({ posts, showComments, onComments, showCommentForm, toggleCommentForm, commentsPost, toggleLikes, showLikes, usersId }) => {
     if (!posts.length) {
         return <h3>No posts yet.</h3>;
     }

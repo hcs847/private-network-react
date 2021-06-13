@@ -44,7 +44,7 @@ type Group {
     _id: ID
     groupName: String
     groupAdmin: String
-    group_img: String
+    groupImg: String
     users: [User]
     posts: [Post]
 }
@@ -80,7 +80,7 @@ type Mutation {
     addComment(postId: ID!, commentBody:String!): Post
     likePost(postId: ID!): Post
     unlikePost(postId: ID!): Post
-    addGroup(groupName: String!, groupAdmin: String, grou_img: String) : Group
+    addGroup(groupName: String!, groupAdmin: String, groupImg: String) : Group
     deletePost(postId: ID!): Post
     deleteGroup(groupId: ID!): Group
 }

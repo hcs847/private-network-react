@@ -39,6 +39,7 @@ const Home = () => {
         }
     };
 
+    // handle comments form 
     const [showCommentForm, setShowCommentForm] = useState(false);
     const [commentsPost, setCommentsPost] = useState('');
     const toggleCommentForm = (id) => {
@@ -48,6 +49,7 @@ const Home = () => {
 
     // toggle comments display to be hidden as a default
     const [showComments, setShowComments] = useState(false);
+    // assign post's Id to comment to isolate click event
     const toggleComments = (id) => {
         setShowComments(!showComments);
         setCommentsPost(id);
@@ -57,10 +59,14 @@ const Home = () => {
     const [showLikes, setShowLikes] = useState(false);
     const toggleLikesDisplay = () => setShowLikes(!showLikes);
 
+    // handle group form
+    const [showGroupForm, setShowGroupForm] = useState(false);
+    const toggleGroupForm = () => setShowGroupForm(!showGroupForm);
+
     // protect routes, if user is not logged in, redirect to landing page
     if (!Auth.loggedIn()) {
         return (<Redirect to='/' />)
-    }
+    };
 
     return (
         <div className='home-page flex flex-center'>
@@ -83,14 +89,16 @@ const Home = () => {
                         showLikes={showLikes}
                         usersId={me._id} />
                 </div>
-                <div className="side-container">
+                <div className="side-container flex flex-columns">
                     <Search />
                     <SearchUser />
-                    <GroupForm />
+                    <GroupForm
+                        toggleGroupForm={toggleGroupForm}
+                        showGroupForm={showGroupForm} />
                 </div>
             </div>
         </div>
     )
 }
 
-export default Home
+export default Home;

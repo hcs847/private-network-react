@@ -121,7 +121,7 @@ export const QUERY_GROUPS = gql`
     _id
     groupName
     groupAdmin
-    group_img
+    groupImg
     posts {
       _id
       title
@@ -136,7 +136,7 @@ query group($_id:ID!) {
     _id
     groupName
     groupAdmin
-    group_img
+    groupImg
     posts {
       _id
       title
