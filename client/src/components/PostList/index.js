@@ -5,7 +5,7 @@ import Likes from '../Likes';
 import Comments from '../Comments';
 import CommentForm from '../CommentForm';
 
-const PostList = ({ posts, showComments, onComments, showCommentForm, toggleCommentForm, toggleLikes, showLikes, usersId }) => {
+const PostList = ({ posts, showComments, onComments, showCommentForm, toggleCommentForm, commentsPost, setCommentsPost, toggleLikes, showLikes, usersId }) => {
     if (!posts.length) {
         return <h3>No posts yet.</h3>;
     }
@@ -28,7 +28,9 @@ const PostList = ({ posts, showComments, onComments, showCommentForm, toggleComm
                                     comments={post.comments}
                                     commentCount={post.commentCount}
                                     showComments={showComments}
-                                    onComments={onComments} />
+                                    onComments={onComments}
+                                    commentsPost={commentsPost}
+                                    postId={post._id} />
                             </div>
                             <Likes
                                 likeCount={post.likeCount}
@@ -42,7 +44,6 @@ const PostList = ({ posts, showComments, onComments, showCommentForm, toggleComm
                                 postId={post._id}
                                 likes={post.likes}
                                 usersId={usersId}
-                                likeCount={post.likeCount}
                             />
                             <CommentForm
                                 postId={post._id}
@@ -50,6 +51,7 @@ const PostList = ({ posts, showComments, onComments, showCommentForm, toggleComm
                                 toggleCommentForm={toggleCommentForm}
                                 comments={post.comments}
                                 commentCount={post.commentCount}
+                                commentsPost={commentsPost}
                             />
                         </div>
                     </div>
