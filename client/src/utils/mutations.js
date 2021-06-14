@@ -74,20 +74,14 @@ mutation addComment($postId: ID!, $commentBody: String! ){
 `;
 
 export const ADD_GROUP = gql`
-  mutation addGroup($groupName: String!, $groupAdmin: String, $groupImg: String){
-    addPost(groupName: $groupName, groupAdmin: $groupAdmin, groupImg: $groupImg){
+  mutation addGroup($groupName: String!){
+    addGroup(groupName: $groupName){
       _id
       groupName
       groupAdmin
-      groupImg
       users {
-        _id
         firstName
         lastName
-      }
-      posts {
-        _id
-        title
       }
     }
   }

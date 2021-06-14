@@ -23,6 +23,7 @@ const CommentForm = ({ postId, toggleCommentForm, showCommentForm, commentsPost 
 
 
     const handleSubmitCommentForm = async event => {
+
         event.preventDefault();
         try {
             await addComment({
