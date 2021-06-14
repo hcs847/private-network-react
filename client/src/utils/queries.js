@@ -125,6 +125,8 @@ export const QUERY_GROUPS = gql`
     posts {
       _id
       title
+      body
+      post_img
     }
   }
 }

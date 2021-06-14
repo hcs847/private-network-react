@@ -30,8 +30,7 @@ const Group = () => {
                 <div className="main-container flex flex-columns center">
                     <div className="group-page card center">
                         <div className="card-title center">
-                            <h2>Group Page</h2>
-                            <p>Group's Name: {group.groupName}</p>
+                            <h2>{group.groupName}'s Page</h2>
                             <p>Group's Admin: {group.groupAdmin}</p>
                             <p>{group.groupImg}</p>
                         </div>

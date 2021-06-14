@@ -1,6 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Post, Group } = require('../models');
-const { find } = require('../models/Post');
 const { signToken } = require('../utils/auth');
 
 
@@ -178,8 +177,7 @@ const resolvers = {
                 return updatedPost;
             }
             throw new AuthenticationError('You need to be logged in for this action.')
-        }
-        ,
+        },
         addGroup: async (parent, args, context) => {
             if (context.user) {
                 const group = await Group.create({

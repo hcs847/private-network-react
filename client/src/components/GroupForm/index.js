@@ -5,29 +5,28 @@ import { ADD_GROUP } from '../../utils/mutations';
 import { GrClose } from 'react-icons/gr';
 
 const GroupForm = ({ toggleGroupForm, showGroupForm }) => {
+    // group form fields
+    const [groupState, setGroupState] = useState({ groupName: '' });
+
     // create a group
     const [addGroup, { error }] = useMutation(ADD_GROUP);
 
-    // group form fields
-    const [groupState, setGroupState] = useState({
-        groupName: '',
-        groupAdmin: '',
-        groupImg: ''
-    });
 
-    const handleChangeGroupForm = async event => {
-        event.preventdefault();
+    const handleChangeGroupForm = (event) => {
+        setGroupState({
+            ...groupState,
+            groupName: event.target.value
+        });
+    };
+
+    const handleSubmitGroupForm = async event => {
+        event.preventDefault();
         try {
-            await addGroup({
-                variables: { ...groupState }
-            });
+            await addGroup({ variables: { groupName: groupState.groupName } });
             setGroupState({
-                groupName: '',
-                groupAdmin: '',
-                groupImg: ''
+                groupName: ''
             });
             toggleGroupForm();
-
         } catch (err) {
             console.log(err);
         }
@@ -39,10 +38,8 @@ const GroupForm = ({ toggleGroupForm, showGroupForm }) => {
                 <button className="flex flex-between group-form__btn"
                     type='button'
                     onClick={toggleGroupForm}>
-                    {/* <div className="flex flex-between group-form__txt"> */}
                     <MdGroupAdd className='icons title center m-l-5' />
                     <p className='center group-form__title'>Create a group</p>
-                    {/* </div> */}
                 </button>
                 {showGroupForm && (
                     <div className="modal-overlay">
@@ -56,9 +53,19 @@ const GroupForm = ({ toggleGroupForm, showGroupForm }) => {
                                 ><GrClose /></button>
                             </div>
                             <form className={`flex flex-columns ${!showGroupForm ? 'no-display' : ''}`}
-                                onSubmit={handleChangeGroupForm}
+                                onSubmit={handleSubmitGroupForm}
                             >
-
+                                <div className="flex flex-between">
+                                    <label htmlFor="groupName">Group name</label>
+                                    <input
+                                        type="text"
+                                        name="groupName"
+                                        value={groupState.groupName}
+                                        onChange={handleChangeGroupForm}
+                                    />
+                                </div>
+                                <button className='btn'>Submit</button>
+                                {error && <p>There was a problem with submiting your request.</p>}
                             </form>
                         </div>
                     </div>
