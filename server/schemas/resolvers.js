@@ -27,7 +27,12 @@ const resolvers = {
 
         findUser: async (parent, args) => {
             const { filter } = args;
-            const foundUser = await User.find({ firstName: { '$regex': filter, '$options': 'i' } });
+            const foundUser = await User.find({
+                $or: [
+                    { firstName: { '$regex': filter, '$options': 'i' } },
+                    { lastName: { '$regex': filter, '$options': 'i' } }
+                ]
+            });
             return foundUser;
         }
         ,
@@ -48,6 +53,15 @@ const resolvers = {
         posts: async () => {
             return Post.find()
                 .populate('likes');
+        },
+
+        findPost: async (parent, args) => {
+            const { filter } = args;
+            return await Post.find({
+                $or: [
+                    { title: { '$regex': filter, '$options': 'i' } },
+                    { body: { '$regex': filter, '$options': 'i' } }]
+            });
         },
 
         // ======================================
