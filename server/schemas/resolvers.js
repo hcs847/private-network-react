@@ -25,6 +25,13 @@ const resolvers = {
                 .populate('likedPosts');
         },
 
+        findUser: async (parent, args) => {
+            const { filter } = args;
+            const foundUser = await User.find({ firstName: { '$regex': filter, '$options': 'i' } });
+            return foundUser;
+        }
+        ,
+
         users: async () => {
             return User.find()
                 // omits the Mongoose __v property the user's password information,

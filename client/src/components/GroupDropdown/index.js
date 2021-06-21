@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 const GroupDropdown = ({ groups, getGroupId }) => {
-    // const groupDropdownRef = useRef(null);
     const [dropdownItem, setDropdownItem] = useState('Select a group');
+
     const handleDropdown = (e) => {
         setDropdownItem(e.target.value);
         getGroupId(e);
@@ -25,6 +25,7 @@ const GroupDropdown = ({ groups, getGroupId }) => {
                         {group.groupName}
                     </option>)}
             </select>
+
         </label>
 
     )
