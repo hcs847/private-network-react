@@ -46,11 +46,60 @@ query user($_id: ID!) {
   		}
     }
 `;
+export const FIND_USER = gql`
+query findUser($filter: String!) {
+    findUser(filter: $filter){
+        _id
+        email
+        firstName
+        lastName
+        posts {
+            _id
+            title
+            post_img
+            body
+                }
+  		}
+    }
+`;
 
 export const QUERY_POST = gql`
 query post($_id:ID!) {
   post(_id:$_id){
     _id
+    postGroup
+    title
+    post_img
+    createdByName
+    createdById
+    likeCount
+    likes {
+      _id
+      likedByName
+      likedAt
+    }
+    commentCount
+    comments {
+      _id
+      createdAt
+      createdByName
+      createdById
+      commentBody
+    }
+    likes {
+      _id
+      likedAt
+      likedByName
+      likedById
+    }
+  }  
+}
+`;
+
+export const FIND_POST = gql`
+query findPost($filter: String!) {
+    findPost(filter: $filter){
+      _id
     postGroup
     title
     post_img

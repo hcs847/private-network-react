@@ -12,7 +12,7 @@ const Search = () => {
                 <input
                     className='center'
                     type="text"
-                    placeholder='Search'
+                    placeholder='Search posts'
                 />
             </form>
 
