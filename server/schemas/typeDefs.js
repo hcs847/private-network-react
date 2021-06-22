@@ -53,8 +53,8 @@ type Query {
     me: User
     user(_id: ID!): User
     users: [User]
-    findUser(filter: String): [User]
-    findPost(filter: String): [Post]
+    findUser(filter: String!): [User]
+    findPost(filter: String!): [Post]
     post(_id: ID!): Post
     posts: [Post]
     group(_id: ID!): Group

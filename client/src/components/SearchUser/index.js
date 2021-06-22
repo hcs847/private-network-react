@@ -10,7 +10,7 @@ const SearchUser = () => {
                 <input
                     className='center'
                     type="text"
-                    placeholder='Search User'
+                    placeholder='Search users'
                 />
             </form>
 
