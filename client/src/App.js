@@ -10,6 +10,8 @@ import Group from './pages/Group';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header';
+import Results from './pages/Results';
+
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -35,6 +37,7 @@ function App() {
             <Route exact path="/home" component={Home} />
             <Route exact path="/profile/:id?" component={ProfilePage} />
             <Route exact path="/group/:id" component={Group} />
+            <Route exact path="/search/:term" component={Results} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
           </Switch>

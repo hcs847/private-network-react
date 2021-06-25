@@ -78,7 +78,8 @@ const Home = () => {
                 <div className="main-container">
                     <PostForm showPostForm={showPostForm}
                         onPost={togglePostForm} groups={groups} />
-                    <PostList posts={posts}
+                    <PostList
+                        posts={posts}
                         showComments={showComments}
                         onComments={toggleComments}
                         showCommentForm={showCommentForm}
